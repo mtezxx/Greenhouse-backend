@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mkuku\\RiderProjects\\Greenhouse-backend\\HttpClients\\HttpClients.csproj": {}
+    "C:\\Users\\mkuku\\Desktop\\Software4X\\Greenhouse-backend\\HttpClients\\HttpClients.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mkuku\\RiderProjects\\Greenhouse-backend\\HttpClients\\HttpClients.csproj": {
+    "C:\\Users\\mkuku\\Desktop\\Software4X\\Greenhouse-backend\\HttpClients\\HttpClients.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mkuku\\RiderProjects\\Greenhouse-backend\\HttpClients\\HttpClients.csproj",
+        "projectUniqueName": "C:\\Users\\mkuku\\Desktop\\Software4X\\Greenhouse-backend\\HttpClients\\HttpClients.csproj",
         "projectName": "HttpClients",
-        "projectPath": "C:\\Users\\mkuku\\RiderProjects\\Greenhouse-backend\\HttpClients\\HttpClients.csproj",
+        "projectPath": "C:\\Users\\mkuku\\Desktop\\Software4X\\Greenhouse-backend\\HttpClients\\HttpClients.csproj",
         "packagesPath": "C:\\Users\\mkuku\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mkuku\\RiderProjects\\Greenhouse-backend\\HttpClients\\obj\\",
+        "outputPath": "C:\\Users\\mkuku\\Desktop\\Software4X\\Greenhouse-backend\\HttpClients\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mkuku\\AppData\\Roaming\\NuGet\\NuGet.Config",

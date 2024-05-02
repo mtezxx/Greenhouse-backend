@@ -1,0 +1,11 @@
+/Greenhouse-backend.sln
+/.idea/
+**/.vscode
+/**/obj
+/**/bin
+/EfcDataAccess/Migrations
+/greenhouse-backend.sln.DotSettings.user
+/.env
+**/.env
+.env
+WebAPI/Properties/launchSettings.json
