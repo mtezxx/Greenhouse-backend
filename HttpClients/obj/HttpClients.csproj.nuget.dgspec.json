@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mkuku\\Desktop\\Software4X\\Greenhouse-backend\\HttpClients\\HttpClients.csproj": {}
+    "/Users/IHSSAN/RiderProjects/Greenhouse-backend/HttpClients/HttpClients.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mkuku\\Desktop\\Software4X\\Greenhouse-backend\\HttpClients\\HttpClients.csproj": {
+    "/Users/IHSSAN/RiderProjects/Greenhouse-backend/HttpClients/HttpClients.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mkuku\\Desktop\\Software4X\\Greenhouse-backend\\HttpClients\\HttpClients.csproj",
+        "projectUniqueName": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/HttpClients/HttpClients.csproj",
         "projectName": "HttpClients",
-        "projectPath": "C:\\Users\\mkuku\\Desktop\\Software4X\\Greenhouse-backend\\HttpClients\\HttpClients.csproj",
-        "packagesPath": "C:\\Users\\mkuku\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mkuku\\Desktop\\Software4X\\Greenhouse-backend\\HttpClients\\obj\\",
+        "projectPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/HttpClients/HttpClients.csproj",
+        "packagesPath": "/Users/IHSSAN/.nuget/packages/",
+        "outputPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/HttpClients/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mkuku\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/IHSSAN/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -50,12 +48,22 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }
