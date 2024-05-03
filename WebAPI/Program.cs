@@ -1,7 +1,10 @@
 using System.Text;
+using Application.DaoInterfaces;
 using Application.Logic;
 using Application.LogicInterfaces;
 using Domain.Auth;
+using EfcDataAccess;
+using EfcDataAccess.DAOs;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
@@ -14,6 +17,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAuthLogic, AuthLogic>();
+builder.Services.AddScoped<IAuthDao, AuthDao>();
+builder.Services.AddDbContext<EfcContext>();
+
 AuthorizationPolicies.AddPolicies(builder.Services);
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
