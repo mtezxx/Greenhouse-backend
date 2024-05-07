@@ -11,6 +11,9 @@ public class EfcContext : DbContext
 
     public DbSet<Notification> Notifications { get; set; }
 
+    public EfcContext(DbContextOptions<EfcContext> options) : base(options)
+    {
+    }
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -26,7 +29,7 @@ public class EfcContext : DbContext
     {
         modelBuilder.Entity<User>().HasKey(user => user.Id);
         modelBuilder.Entity<Measurement>()
-            .HasKey(m => m.Id);  // Explicitly setting Id as the primary key
+            .HasKey(m => m.Id);
 
         modelBuilder.Entity<Measurement>()
             .HasDiscriminator<string>("Type")

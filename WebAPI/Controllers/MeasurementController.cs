@@ -18,7 +18,7 @@ public class MeasurementController : ControllerBase
     public async Task<IActionResult> GetMeasurements([FromQuery] string type)
     {
         var measurements = await _measurementLogic.GetAllMeasurements(type);
-        if (measurements.Count > 0)  // Checks if the list has more than zero elements
+        if (measurements.Count > 0) 
         {
             return Ok(measurements);
         }
