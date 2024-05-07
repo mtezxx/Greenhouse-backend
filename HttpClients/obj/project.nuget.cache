@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "M8fAOA6PUEYTmULobVnXiN5sXtup+MJHNXTW3ghLiEWW3CECwLaqqKXx+ID9ZJzC1xhGjeB4gaUrUahpZVhHJA==",
+  "dgSpecHash": "r+QhgYKBP9PiuGSizqhrjRt1xkT4FGCYdzxOw4lO9ij2QDGMYTKM6/H54EUVbS7UEFND5L47bKOhXXa6VvbXZg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mkuku\\Desktop\\Software4X\\Greenhouse-backend\\HttpClients\\HttpClients.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/HttpClients/HttpClients.csproj",
+  "expectedPackageFiles": [
+    "/Users/IHSSAN/.nuget/packages/microsoft.netcore.app.ref/7.0.14/microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
+    "/Users/IHSSAN/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.14/microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512"
+  ],
   "logs": []
 }

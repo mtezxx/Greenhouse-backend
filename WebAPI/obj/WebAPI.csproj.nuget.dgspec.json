@@ -1,27 +1,92 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mkuku\\Desktop\\Software4X\\Greenhouse-backend\\WebAPI\\WebAPI.csproj": {}
+    "/Users/IHSSAN/RiderProjects/Greenhouse-backend/WebAPI/WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mkuku\\Desktop\\Software4X\\Greenhouse-backend\\WebAPI\\WebAPI.csproj": {
+    "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Application/Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mkuku\\Desktop\\Software4X\\Greenhouse-backend\\WebAPI\\WebAPI.csproj",
-        "projectName": "WebAPI",
-        "projectPath": "C:\\Users\\mkuku\\Desktop\\Software4X\\Greenhouse-backend\\WebAPI\\WebAPI.csproj",
-        "packagesPath": "C:\\Users\\mkuku\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mkuku\\Desktop\\Software4X\\Greenhouse-backend\\WebAPI\\obj\\",
+        "projectUniqueName": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Application/Application.csproj",
+        "projectName": "Application",
+        "projectPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Application/Application.csproj",
+        "packagesPath": "/Users/IHSSAN/.nuget/packages/",
+        "outputPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Application/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mkuku\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/IHSSAN/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Domain/Domain.csproj": {
+                "projectPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Domain/Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Domain/Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Domain/Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Domain/Domain.csproj",
+        "packagesPath": "/Users/IHSSAN/.nuget/packages/",
+        "outputPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/IHSSAN/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,6 +105,172 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authorization": {
+              "target": "Package",
+              "version": "[7.0.18, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/IHSSAN/RiderProjects/Greenhouse-backend/EfcDataAccess/EfcDataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/EfcDataAccess/EfcDataAccess.csproj",
+        "projectName": "EfcDataAccess",
+        "projectPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/EfcDataAccess/EfcDataAccess.csproj",
+        "packagesPath": "/Users/IHSSAN/.nuget/packages/",
+        "outputPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/EfcDataAccess/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/IHSSAN/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Application/Application.csproj": {
+                "projectPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Application/Application.csproj"
+              },
+              "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Domain/Domain.csproj": {
+                "projectPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Domain/Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.18, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.18, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.18, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/IHSSAN/RiderProjects/Greenhouse-backend/WebAPI/WebAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/WebAPI/WebAPI.csproj",
+        "projectName": "WebAPI",
+        "projectPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/WebAPI/WebAPI.csproj",
+        "packagesPath": "/Users/IHSSAN/.nuget/packages/",
+        "outputPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/WebAPI/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/IHSSAN/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Application/Application.csproj": {
+                "projectPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Application/Application.csproj"
+              },
+              "/Users/IHSSAN/RiderProjects/Greenhouse-backend/EfcDataAccess/EfcDataAccess.csproj": {
+                "projectPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/EfcDataAccess/EfcDataAccess.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.18, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.11, )"
@@ -60,6 +291,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-arm64",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -68,7 +313,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }

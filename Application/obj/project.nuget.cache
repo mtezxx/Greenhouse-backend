@@ -1,8 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "FtQg6XD60jU5qB0aH48iD4sMiidv4Do+ZejUHVPSPZ5bf4oXAR9pc4c9U4ZDL4gsGaSqEdYNIDIo/muVtNPvpA==",
+  "dgSpecHash": "0NsqAUGPrEOz9COLcjbMz9W6R7lygsBrPLxFQqrzs5M4aLy8+bhVR6Awh63cMTB5pVtV+C7NvkStjaYBjZMd1w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mkuku\\Desktop\\Software4X\\Greenhouse-backend\\Application\\Application.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Application/Application.csproj",
+  "expectedPackageFiles": [
+    "/Users/IHSSAN/.nuget/packages/microsoft.aspnetcore.authorization/7.0.18/microsoft.aspnetcore.authorization.7.0.18.nupkg.sha512",
+    "/Users/IHSSAN/.nuget/packages/microsoft.aspnetcore.metadata/7.0.18/microsoft.aspnetcore.metadata.7.0.18.nupkg.sha512",
+    "/Users/IHSSAN/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/7.0.0/microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "/Users/IHSSAN/.nuget/packages/microsoft.extensions.logging.abstractions/7.0.1/microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
+    "/Users/IHSSAN/.nuget/packages/microsoft.extensions.options/7.0.1/microsoft.extensions.options.7.0.1.nupkg.sha512",
+    "/Users/IHSSAN/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "/Users/IHSSAN/.nuget/packages/microsoft.netcore.app.ref/7.0.14/microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
+    "/Users/IHSSAN/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.14/microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512"
+  ],
   "logs": []
 }
