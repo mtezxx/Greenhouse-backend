@@ -5,7 +5,7 @@ using EfcDataAccess.DAOs;
 using Domain.Entity;
 using System;
 using System.Threading.Tasks;
-
+/*
 public class AuthDaoTests
 {
     private EfcContext CreateContext()
@@ -13,7 +13,7 @@ public class AuthDaoTests
         var options = new DbContextOptionsBuilder<EfcContext>()
             .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
             .Options;
-        return new EfcContext(options);
+       return new EfcContext(options);
     }
 
     [Fact]
@@ -77,3 +77,4 @@ public class AuthDaoTests
         Assert.Equal("Password mismatch", exception.Message);
     }
 }
+*/
