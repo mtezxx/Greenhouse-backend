@@ -9,7 +9,9 @@ public class EfcContext : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<Measurement> Measurements { get; set; }
 
-  
+    public DbSet<Notification> Notifications { get; set; }
+
+
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -33,5 +35,6 @@ public class EfcContext : DbContext
         modelBuilder.Entity<Measurement>()
             .Property(m => m.Time)
             .HasDefaultValueSql("CURRENT_TIMESTAMP");
+        modelBuilder.Entity<Notification>().HasKey(n => n.Id);
     }
 }

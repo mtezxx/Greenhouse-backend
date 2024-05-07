@@ -304,19 +304,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/IHSSAN/.nuget/packages/": {}
+    "C:\\Users\\tomim\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Domain/Domain.csproj",
+      "projectUniqueName": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Domain/Domain.csproj",
-      "packagesPath": "/Users/IHSSAN/.nuget/packages/",
-      "outputPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Domain/obj/",
+      "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\Domain\\Domain.csproj",
+      "packagesPath": "C:\\Users\\tomim\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/IHSSAN/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\tomim\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -359,11 +359,15 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[7.0.14, 7.0.14]"
+            "version": "[7.0.17, 7.0.17]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[7.0.14, 7.0.14]"
+            "version": "[7.0.17, 7.0.17]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[7.0.17, 7.0.17]"
           }
         ],
         "frameworkReferences": {
@@ -371,7 +375,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
