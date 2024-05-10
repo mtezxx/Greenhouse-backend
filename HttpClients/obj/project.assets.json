@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\tomim\\.nuget\\packages\\": {}
+    "/Users/IHSSAN/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\HttpClients\\HttpClients.csproj",
+      "projectUniqueName": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/HttpClients/HttpClients.csproj",
       "projectName": "HttpClients",
-      "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\HttpClients\\HttpClients.csproj",
-      "packagesPath": "C:\\Users\\tomim\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\HttpClients\\obj\\",
+      "projectPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/HttpClients/HttpClients.csproj",
+      "packagesPath": "/Users/IHSSAN/.nuget/packages/",
+      "outputPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/HttpClients/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\tomim\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/IHSSAN/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -57,15 +57,11 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[7.0.17, 7.0.17]"
+            "version": "[7.0.14, 7.0.14]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[7.0.17, 7.0.17]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[7.0.17, 7.0.17]"
+            "version": "[7.0.14, 7.0.14]"
           }
         ],
         "frameworkReferences": {
@@ -73,7 +69,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }

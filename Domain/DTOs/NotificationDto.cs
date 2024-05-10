@@ -1,15 +1,15 @@
 namespace Domain.DTOs;
 
-public class NotificationDto
-{
+public class NotificationDto {
     public double Threshold { get; set; }
-    public int MeasurementID { get; set; }
+    public string MeasurementType { get; set; }
     public string Message { get; set; }
+    public NotificationDto() {}
 
-    public NotificationDto(double threshold, int measurementId, string message)
-    {
+
+    public NotificationDto(double threshold, string measurementType, string message) {
         Threshold = threshold;
-        MeasurementID = measurementId;
+        MeasurementType = measurementType;
         Message = message;
     }
 }

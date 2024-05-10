@@ -10,6 +10,7 @@ public class EfcContext : DbContext
     public DbSet<Measurement> Measurements { get; set; }
 
     public DbSet<Notification> Notifications { get; set; }
+    public EfcContext() : base() { } 
 
     public EfcContext(DbContextOptions<EfcContext> options) : base(options)
     {
@@ -18,11 +19,10 @@ public class EfcContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        if (!optionsBuilder.IsConfigured)
-        {
+       
             optionsBuilder.UseSqlite("Data Source = ../EfcDataAccess/Greenhouse.db");
             optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-        }
+        
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -1,14 +1,16 @@
 namespace Domain.Entity;
 
-public class Notification{
-    public int Id {get;set;}
-    public double Threshold {get;set;}
-    public int MeasurementID {get;set;}
-    public string Message {get;set;}
+public class Notification {
+    public int Id { get; set; }
+    public double Threshold { get; set; }
+    public string MeasurementType { get; set; }
+    public string Message { get; set; }
 
-    public Notification(double threshold, int measurementId, string message){
+    public Notification() {}  // EF Core requires a parameterless constructor
+
+    public Notification(double threshold, string measurementType, string message) {
         Threshold = threshold;
-        MeasurementID = measurementId;
+        MeasurementType = measurementType;
         Message = message;
     }
 }

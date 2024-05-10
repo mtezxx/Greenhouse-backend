@@ -1,12 +1,12 @@
 using Domain.DTOs;
-using Domain.Entity;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Application.LogicInterfaces;
 
-public interface INotificationLogic{
+public interface INotificationLogic {
+    Task<List<NotificationDto>> GetNotificationsAsync();
     Task<NotificationDto?> GetNotificationByIdAsync(int id);
-    Task<NotificationDto?> GetNotificationByMeasurementThresholdHigherAsync(int measurementId);
-    Task<NotificationDto?> GetNotificationByMeasurementThresholdLowerAsync(int measurementId);
-    Task<List<NotificationDto?>> GetNotificationsAsync();
-    Task<Notification> AddNotificationAsync(NotificationDto notificationDto);
+    Task<(NotificationDto, int)> AddNotificationAsync(NotificationDto notificationDto);
+    Task<NotificationDto?> GetNotificationByMeasurementTypeAsync(string type);
 }

@@ -23,6 +23,9 @@ builder.Services.AddScoped<IAuthDao, AuthDao>();
 builder.Services.AddDbContext<EfcContext>();
 builder.Services.AddScoped<IMeasurementDao<Temperature>, MeasurementDao<Temperature>>();
 builder.Services.AddScoped<IMeasurementDao<Humidity>, MeasurementDao<Humidity>>();
+builder.Services.AddScoped<INotificationDao, NotificationDao>();
+builder.Services.AddScoped<INotificationLogic, NotificationLogic>();
+
 AuthorizationPolicies.AddPolicies(builder.Services);
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
