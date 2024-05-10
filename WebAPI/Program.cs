@@ -3,6 +3,7 @@ using Application.DaoInterfaces;
 using Application.Logic;
 using Application.LogicInterfaces;
 using Domain.Auth;
+using Domain.Entity;
 using EfcDataAccess;
 using EfcDataAccess.DAOs;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -17,8 +18,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAuthLogic, AuthLogic>();
+builder.Services.AddScoped<IMeasurementLogic, MeasurementLogic>();
 builder.Services.AddScoped<IAuthDao, AuthDao>();
 builder.Services.AddDbContext<EfcContext>();
+builder.Services.AddScoped<IMeasurementDao<Temperature>, MeasurementDao<Temperature>>();
+builder.Services.AddScoped<IMeasurementDao<Humidity>, MeasurementDao<Humidity>>();
+builder.Services.AddScoped<INotificationDao, NotificationDao>();
+builder.Services.AddScoped<INotificationLogic, NotificationLogic>();
 
 AuthorizationPolicies.AddPolicies(builder.Services);
 

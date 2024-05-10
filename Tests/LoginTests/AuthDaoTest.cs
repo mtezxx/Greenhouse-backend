@@ -13,7 +13,7 @@ public class AuthDaoTests
         var options = new DbContextOptionsBuilder<EfcContext>()
             .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
             .Options;
-        return new EfcContext(options);
+       return new EfcContext(options);
     }
 
     [Fact]
