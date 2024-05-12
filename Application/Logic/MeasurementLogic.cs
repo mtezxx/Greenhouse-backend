@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using Application.DaoInterfaces;
 using Application.LogicInterfaces;
 using Domain.DTOs;
@@ -37,6 +38,50 @@ public class MeasurementLogic : IMeasurementLogic
 
         return measurements.Select(m => new MeasurementDto { Value = m.Value, Time = m.Time, Type = m.Type }).ToList();
     }
+    
+    public async Task ProcessMeasurementData(List<Measurement> measurements)
+    {
+        foreach (var measurement in measurements)
+        {
+            if (measurement is Temperature temperature)
+            {
+                await _temperatureDao.AddAsync(temperature);
+            }
+            else if (measurement is Humidity humidity)
+            {
+                await _humidityDao.AddAsync(humidity);
+            }
+        }
+    }
+    public List<Measurement> ParseMeasurementData(string data)
+    {
+        List<Measurement> measurements = new List<Measurement>();
+Console.WriteLine(data);
+        var tempMatch = Regex.Match(data, @"Temp: (\d+\.\d+)");
+        var humMatch = Regex.Match(data, @"Hum: (\d+\.\d+)");
+
+        if (tempMatch.Success)
+        {
+            measurements.Add(new Temperature
+            {
+                Value = double.Parse(tempMatch.Groups[1].Value),
+                Time = DateTime.UtcNow
+            });
+        }
+
+        if (humMatch.Success)
+        {
+            measurements.Add(new Humidity
+            {
+                Value = double.Parse(humMatch.Groups[1].Value),
+                Time = DateTime.UtcNow
+            });
+        }
+measurements.ForEach(Console.WriteLine);
+        return measurements;
+    }
+
+    
 }
 
 

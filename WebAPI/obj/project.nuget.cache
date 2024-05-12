@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "iMsBS7LG2PQIJE59I1A6jTGa9KkLM/ry113m8f1V6pTc5qpJiFzl1MNZvlA9cgPynaR13ojfqNrrPyRM1ryEJA==",
+  "dgSpecHash": "R1QS1VSn0zbNTdvcToeq6hh3TTR9v8jk9/AOsgjSX2XUNH1MUDYrm6/MPjh+TlJH4SooMrqBaXrcsiQraWpbiQ==",
   "success": true,
   "projectFilePath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/WebAPI/WebAPI.csproj",
   "expectedPackageFiles": [
@@ -36,6 +36,7 @@
     "/Users/IHSSAN/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/Users/IHSSAN/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "/Users/IHSSAN/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
+    "/Users/IHSSAN/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
     "/Users/IHSSAN/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.4/sqlitepclraw.bundle_e_sqlite3.2.1.4.nupkg.sha512",
     "/Users/IHSSAN/.nuget/packages/sqlitepclraw.core/2.1.4/sqlitepclraw.core.2.1.4.nupkg.sha512",
     "/Users/IHSSAN/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.4/sqlitepclraw.lib.e_sqlite3.2.1.4.nupkg.sha512",

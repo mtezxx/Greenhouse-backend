@@ -20,10 +20,22 @@ public class MeasurementDao<T> : IMeasurementDao<T> where T : Measurement, new()
             .ToListAsync();
     }
 
-    public async Task<T> AddAsync(T measurement)
+    public async Task AddAsync(T measurement)
     {
-        _context.Set<T>().Add(measurement);
+        try
+        {
+            _context.Set<T>().Add(measurement);
+            await _context.SaveChangesAsync();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error saving to database: " + ex.Message);
+            throw;  // Rethrow or handle as necessary
+        }
+    }
+
+    public async Task SaveChangesAsync()
+    {
         await _context.SaveChangesAsync();
-        return measurement;
     }
 }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EfcDataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c3ed256e780b320e410e3201db284b7e2a9f59f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11a3da3cd6e76d6fdf22ea813adf20a34707f891")]
 [assembly: System.Reflection.AssemblyProductAttribute("EfcDataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EfcDataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
