@@ -199,3 +199,5 @@ C:\Users\tomim\Documents\GitHub\greenhouse-backend-cloud\webapi\obj\Debug\net7.0
 C:\Users\tomim\Documents\GitHub\greenhouse-backend-cloud\webapi\obj\Debug\net7.0\WebAPI.csproj.Up2Date
 C:\Users\tomim\Documents\GitHub\greenhouse-backend-cloud\webapi\obj\Debug\net7.0\WebAPI.genruntimeconfig.cache
 C:\Users\tomim\Documents\GitHub\greenhouse-backend-cloud\webapi\obj\Debug\net7.0\ref\WebAPI.dll
+C:\Users\tomim\Documents\GitHub\greenhouse-backend-cloud\WebAPI\bin\Debug\net7.0\DotNetEnv.dll
+C:\Users\tomim\Documents\GitHub\greenhouse-backend-cloud\WebAPI\bin\Debug\net7.0\Sprache.dll

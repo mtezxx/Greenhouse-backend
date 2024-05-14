@@ -37,6 +37,28 @@ public class MeasurementLogic : IMeasurementLogic
 
         return measurements.Select(m => new MeasurementDto { Value = m.Value, Time = m.Time, Type = m.Type }).ToList();
     }
+
+    public async Task<MeasurementDto> GetLatestAsync(string type)
+    {
+        if (type == "Temperature")
+        {
+            Temperature temp = await _temperatureDao.GetLatestAsync("Temperature");
+            MeasurementDto dto = new MeasurementDto { Value = temp.Value, Time = temp.Time, Type = temp.Type };
+            return dto;
+        }
+
+        if (type == "Humidity")
+        {
+            Humidity hum = await _humidityDao.GetLatestAsync("Humidity");
+            MeasurementDto dto = new MeasurementDto { Value = hum.Value, Time = hum.Time, Type = hum.Type };
+            return dto;
+        }
+
+        else
+        {
+            throw new Exception("Invalid measurement type.");
+        }
+    }
 }
 
 

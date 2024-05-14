@@ -12,11 +12,17 @@ namespace Application.Logic;
 public class EmailLogic : IEmailLogic
 {
     private readonly IEmailDao _emailDao;
+    private readonly IThresholdDao _thresholdDao;
+    private readonly IMeasurementDao<Temperature> _temperatureDao;
+    private readonly IMeasurementDao<Humidity> _humidityDao;
     private readonly SmtpClient _smtpClient;
 
-    public EmailLogic(IEmailDao emailDao)
+    public EmailLogic(IEmailDao emailDao, IThresholdDao thresholdDao, IMeasurementDao<Temperature> temperatureDao, IMeasurementDao<Humidity> humidityDao)
     {
         _emailDao = emailDao;
+        _thresholdDao = thresholdDao;
+        _temperatureDao = temperatureDao;
+        _humidityDao = humidityDao;
         
         DotNetEnv.Env.TraversePath().Load();
         _smtpClient = new SmtpClient("smtp.gmail.com")
@@ -86,8 +92,30 @@ public class EmailLogic : IEmailLogic
         return await _emailDao.GetAsync();
     }
 
-    public async Task CheckIfInRange(double temperature, double humidity, double light)
+    public async Task CheckIfInRange(string type)
     {
-        throw new NotImplementedException();
+        Threshold threshold = await _thresholdDao.GetByTypeAsync(type);
+
+        switch (type)
+        {
+            case "Temperature":
+                Temperature temperature = await _temperatureDao.GetLatestAsync("Temperature");
+                double current = temperature.Value;
+                if (current < threshold.minValue || current > threshold.maxValue)
+                {
+                    sendMail($"{type} has exceeded the set threshold.");
+                }
+
+                return;
+            case "Humidity":
+                Humidity humidity = await _humidityDao.GetLatestAsync("Humidity");
+                double currentHum = humidity.Value;
+                if (currentHum < threshold.minValue || currentHum > threshold.maxValue)
+                {
+                    sendMail($"{type} has exceeded the set threshold.");
+                }
+
+                return;
+        }
     }
 }

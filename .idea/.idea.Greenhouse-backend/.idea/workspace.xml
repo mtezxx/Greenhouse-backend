@@ -10,88 +10,80 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="711ea8e7-0533-4362-bc1b-1e35ef0eb388" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/EfcDataAccess/Migrations/20240508113033_AddNotifications.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EfcDataAccess/Migrations/20240508113033_AddNotifications.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EfcDataAccess/Migrations/20240509113921_AddMessageColumn.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EfcDataAccess/Migrations/20240509113921_AddMessageColumn.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/DaoInterfaces/IThresholdDao.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Logic/ThresholdLogic.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/LogicInterfaces/IThresholdLogic.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/DTOs/ThresholdDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Entity/Threshold.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EfcDataAccess/DAOs/EmailDao.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EfcDataAccess/DAOs/ThresholdDao.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EfcDataAccess/Greenhouse.db-shm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EfcDataAccess/Greenhouse.db-wal" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EfcDataAccess/Migrations/20240510121242_Thresholds.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EfcDataAccess/Migrations/20240510121242_Thresholds.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EfcDataAccess/Migrations/20240513092519_ThresholdUpdate.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EfcDataAccess/Migrations/20240513092519_ThresholdUpdate.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EfcDataAccess/Migrations/20240513114105_EmailUpdate.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EfcDataAccess/Migrations/20240513114105_EmailUpdate.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EfcDataAccess/Migrations/20240514093502_EmailFix.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EfcDataAccess/Migrations/20240514093502_EmailFix.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/Controllers/EmailController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/Controllers/ThresholdController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Greenhouse-backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Greenhouse-backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/DaoInterfaces/INotificationDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/DaoInterfaces/INotificationDao.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Logic/NotificationLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Logic/NotificationLogic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/LogicInterfaces/INotificationLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/LogicInterfaces/INotificationLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/DaoInterfaces/IMeasurementDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/DaoInterfaces/IMeasurementDao.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Logic/EmailLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Logic/EmailLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Logic/MeasurementLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Logic/MeasurementLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/LogicInterfaces/IEmailLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/LogicInterfaces/IEmailLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/LogicInterfaces/IMeasurmentLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/LogicInterfaces/IMeasurmentLogic.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/obj/Application.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/Application.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/obj/Application.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/Application.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/obj/Application.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/Application.csproj.nuget.g.targets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/DTOs/NotificationDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/DTOs/NotificationDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entity/Notification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entity/Notification.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Entity/EmailNotification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entity/EmailNotification.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/Domain.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/Domain.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/Domain.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/Domain.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/Domain.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/Domain.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/Domain.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Domain.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Domain.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Domain.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Domain.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Domain.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Domain.csproj.nuget.g.targets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EfcDataAccess/DAOs/NotificationDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EfcDataAccess/DAOs/NotificationDao.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EfcDataAccess/DAOs/MeasurementDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EfcDataAccess/DAOs/MeasurementDao.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EfcDataAccess/EfcContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EfcDataAccess/EfcContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EfcDataAccess/Greenhouse.db" beforeDir="false" afterPath="$PROJECT_DIR$/EfcDataAccess/Greenhouse.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EfcDataAccess/Greenhouse.db-shm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EfcDataAccess/Greenhouse.db-wal" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/EfcDataAccess/Migrations/EfcContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EfcDataAccess/Migrations/EfcContextModelSnapshot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EfcDataAccess/obj/Debug/net7.0/EfcDataAccess.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EfcDataAccess/obj/Debug/net7.0/EfcDataAccess.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EfcDataAccess/obj/Debug/net7.0/EfcDataAccess.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/EfcDataAccess/obj/Debug/net7.0/EfcDataAccess.AssemblyInfoInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EfcDataAccess/obj/Debug/net7.0/EfcDataAccess.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/EfcDataAccess/obj/Debug/net7.0/EfcDataAccess.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EfcDataAccess/obj/Debug/net7.0/EfcDataAccess.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/EfcDataAccess/obj/Debug/net7.0/EfcDataAccess.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EfcDataAccess/obj/EfcDataAccess.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/EfcDataAccess/obj/EfcDataAccess.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EfcDataAccess/obj/EfcDataAccess.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/EfcDataAccess/obj/EfcDataAccess.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EfcDataAccess/obj/EfcDataAccess.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/EfcDataAccess/obj/EfcDataAccess.csproj.nuget.g.targets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EfcDataAccess/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/EfcDataAccess/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EfcDataAccess/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/EfcDataAccess/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EfcDataAccess/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/EfcDataAccess/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EfcDataAccess/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/EfcDataAccess/obj/rider.project.restore.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HttpClients/obj/Debug/net7.0/HttpClients.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HttpClients/obj/Debug/net7.0/HttpClients.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HttpClients/obj/Debug/net7.0/HttpClients.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/HttpClients/obj/Debug/net7.0/HttpClients.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HttpClients/obj/Debug/net7.0/HttpClients.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/HttpClients/obj/Debug/net7.0/HttpClients.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HttpClients/obj/Debug/net7.0/HttpClients.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/HttpClients/obj/Debug/net7.0/HttpClients.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HttpClients/obj/HttpClients.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/HttpClients/obj/HttpClients.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HttpClients/obj/HttpClients.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/HttpClients/obj/HttpClients.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HttpClients/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/HttpClients/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HttpClients/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/HttpClients/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HttpClients/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/HttpClients/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HttpClients/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/HttpClients/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/Controllers/NotificationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/Controllers/NotificationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebAPI/Controllers/MeasurementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/Controllers/MeasurementController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebAPI/Controllers/WeatherForecastController.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebAPI/WeatherForecast.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/WebAPI.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/WebAPI.deps.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/WebAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/WebAPI.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/WebAPI.exe" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/WebAPI.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/WebAPI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/WebAPI.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.genruntimeconfig.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/apphost.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/ref/WebAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/ref/WebAPI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/refint/WebAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/refint/WebAPI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.WebAPI.props" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.WebAPI.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.WebAPI.props" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.WebAPI.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/obj/WebAPI.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/WebAPI.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/obj/WebAPI.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/WebAPI.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/obj/WebAPI.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/WebAPI.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -123,31 +115,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.WebAPI: http.executor": "Run",
-    ".NET Launch Settings Profile.WebAPI: https.executor": "Run",
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "HTTP Request.WebApiTests | #1.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "39-information-history",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.WebAPI: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.WebAPI: https.executor&quot;: &quot;Run&quot;,
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;HTTP Request.WebApiTests | #1.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;97-experimental&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "/Users/IHSSAN/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache",
-      "/Users/IHSSAN/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache",
-      "/Users/IHSSAN/Library/Application Support/Symbols/src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\tomim\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\tomim\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\tomim\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.WebAPI: https">
     <configuration name="WebApiTests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/WebAPI/WebApiTests.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
@@ -227,6 +219,8 @@
       <workItem from="1715017222308" duration="3558000" />
       <workItem from="1715084366241" duration="388000" />
       <workItem from="1715253875508" duration="12217000" />
+      <workItem from="1715591418213" duration="5503000" />
+      <workItem from="1715678140412" duration="1180000" />
     </task>
     <servers />
   </component>
