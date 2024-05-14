@@ -15,22 +15,23 @@ public class EmailLogic : IEmailLogic
     private readonly IThresholdDao _thresholdDao;
     private readonly IMeasurementDao<Temperature> _temperatureDao;
     private readonly IMeasurementDao<Humidity> _humidityDao;
-    private readonly SmtpClient _smtpClient;
+    private readonly ISmtpClient _smtpClient;
 
-    public EmailLogic(IEmailDao emailDao, IThresholdDao thresholdDao, IMeasurementDao<Temperature> temperatureDao, IMeasurementDao<Humidity> humidityDao)
+    public EmailLogic(IEmailDao emailDao, IThresholdDao thresholdDao, IMeasurementDao<Temperature> temperatureDao, IMeasurementDao<Humidity> humidityDao, ISmtpClient smtpClient)
     {
         _emailDao = emailDao;
         _thresholdDao = thresholdDao;
         _temperatureDao = temperatureDao;
         _humidityDao = humidityDao;
+        _smtpClient = smtpClient;
         
-        DotNetEnv.Env.TraversePath().Load();
-        _smtpClient = new SmtpClient("smtp.gmail.com")
-        {
-            Port = 587,
-            Credentials = new NetworkCredential(Environment.GetEnvironmentVariable("EMAIL_USERNAME"), Environment.GetEnvironmentVariable("EMAIL_PASSWORD")),
-            EnableSsl = true,
-        };
+        // DotNetEnv.Env.TraversePath().Load();
+        // _smtpClient = new SmtpClient("smtp.gmail.com")
+        // {
+        //     Port = 587,
+        //     Credentials = new NetworkCredential(Environment.GetEnvironmentVariable("EMAIL_USERNAME"), Environment.GetEnvironmentVariable("EMAIL_PASSWORD")),
+        //     EnableSsl = true,
+        // };
     }
     public async Task<EmailDto> CreateAsync(EmailDto dto)
     {
@@ -51,39 +52,39 @@ public class EmailLogic : IEmailLogic
         return await _emailDao.CreateAsync(email);
     }
 
-    private void sendMail(string warning)
-    {
-        MailMessage message = new MailMessage
-        {
-            From = new MailAddress("greenhouse.notifications01@gmail.com"),
-            Subject = "Threshold Warning",
-            Body = @"
-                <html>
-                <head>
-                    <style>
-                        body {
-                            font-size: 13px;
-                        }
-                        h1 {
-                            color: #13910C;
-                            font-size: 20px;
-                            margin-bottom: 16px;
-                        }
-                        p {
-                            margin-bottom: 10px;
-                        }
-                    </style>
-                </head>
-                <body>
-                    <h1>" + warning + @"</h1>
-                </body>
-                </html>",
-            IsBodyHtml = true
-        };
-
-        message.To.Add(_emailDao.GetAsync().Result.Email);
-        _smtpClient.Send(message);
-    }
+    // private void sendMail(string warning)
+    // {
+    //     MailMessage message = new MailMessage
+    //     {
+    //         From = new MailAddress("greenhouse.notifications01@gmail.com"),
+    //         Subject = "Threshold Warning",
+    //         Body = @"
+    //             <html>
+    //             <head>
+    //                 <style>
+    //                     body {
+    //                         font-size: 13px;
+    //                     }
+    //                     h1 {
+    //                         color: #13910C;
+    //                         font-size: 20px;
+    //                         margin-bottom: 16px;
+    //                     }
+    //                     p {
+    //                         margin-bottom: 10px;
+    //                     }
+    //                 </style>
+    //             </head>
+    //             <body>
+    //                 <h1>" + warning + @"</h1>
+    //             </body>
+    //             </html>",
+    //         IsBodyHtml = true
+    //     };
+    //
+    //     message.To.Add(_emailDao.GetAsync().Result.Email);
+    //     _smtpClient.Send(message);
+    // }
     
     
 
@@ -94,28 +95,17 @@ public class EmailLogic : IEmailLogic
 
     public async Task CheckIfInRange(string type)
     {
-        Threshold threshold = await _thresholdDao.GetByTypeAsync(type);
+        var temperature = await _temperatureDao.GetLatestAsync(type);
+        var threshold = await _thresholdDao.GetByTypeAsync(type);
 
-        switch (type)
+        if (temperature.Value > threshold.maxValue || temperature.Value < threshold.minValue)
         {
-            case "Temperature":
-                Temperature temperature = await _temperatureDao.GetLatestAsync("Temperature");
-                double current = temperature.Value;
-                if (current < threshold.minValue || current > threshold.maxValue)
-                {
-                    sendMail($"{type} has exceeded the set threshold.");
-                }
-
-                return;
-            case "Humidity":
-                Humidity humidity = await _humidityDao.GetLatestAsync("Humidity");
-                double currentHum = humidity.Value;
-                if (currentHum < threshold.minValue || currentHum > threshold.maxValue)
-                {
-                    sendMail($"{type} has exceeded the set threshold.");
-                }
-
-                return;
+            var message = new MailMessage("from@example.com", "to@example.com")
+            {
+                Subject = "Threshold Exceeded",
+                Body = $"The {type} value {temperature.Value} exceeded the threshold."
+            };
+            _smtpClient.Send(message);
         }
     }
 }
