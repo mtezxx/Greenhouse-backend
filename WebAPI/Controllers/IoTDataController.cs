@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace WebAPI.Controllers;
 
-[Microsoft.AspNetCore.Components.Route("api/[controller]")]
+[Route("api/[controller]")]
 [ApiController]
 public class IoTDataController : ControllerBase
 {

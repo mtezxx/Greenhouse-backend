@@ -5,7 +5,7 @@ using Domain.DTOs;
 namespace WebAPI.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class NotificationController : ControllerBase {
     private readonly INotificationLogic _notificationLogic;
 
