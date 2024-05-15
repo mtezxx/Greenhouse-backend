@@ -16,11 +16,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 DotNetEnv.Env.TraversePath().Load();
 
+var userName = Environment.GetEnvironmentVariable("EMAIL_USERNAME");
+var password = Environment.GetEnvironmentVariable("EMAIL_PASSWORD");
+
 builder.Services.AddTransient<SmtpClient>(_ =>
 {
     var client = new SmtpClient("bulk.smtp.mailtrap.io", 587)
     {
-        Credentials = new NetworkCredential(Environment.GetEnvironmentVariable("EMAIL_USERNAME"), Environment.GetEnvironmentVariable("EMAIL_PASSWORD")),
+        Credentials = new NetworkCredential(userName, password),
         EnableSsl = true
     };
     return client;
