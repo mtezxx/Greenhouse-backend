@@ -14,11 +14,13 @@ using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
+DotNetEnv.Env.TraversePath().Load();
+
 builder.Services.AddTransient<SmtpClient>(_ =>
 {
     var client = new SmtpClient("bulk.smtp.mailtrap.io", 587)
     {
-        Credentials = new NetworkCredential("api", "3435764d147f3fdc1262a3bc83b6f398"),
+        Credentials = new NetworkCredential(Environment.GetEnvironmentVariable("EMAIL_USERNAME"), Environment.GetEnvironmentVariable("EMAIL_PASSWORD")),
         EnableSsl = true
     };
     return client;
