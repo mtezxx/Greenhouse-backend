@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\WebAPI\\WebAPI.csproj": {}
+    "/Users/IHSSAN/RiderProjects/Greenhouse-backend/WebAPI/WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\Application\\Application.csproj": {
+    "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Application/Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\Application\\Application.csproj",
+        "projectUniqueName": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Application/Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\tomim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\Application\\obj\\",
+        "projectPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Application/Application.csproj",
+        "packagesPath": "/Users/IHSSAN/.nuget/packages/",
+        "outputPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Application/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tomim\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/IHSSAN/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -26,8 +26,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\Domain\\Domain.csproj"
+              "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Domain/Domain.csproj": {
+                "projectPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Domain/Domain.csproj"
               }
             }
           }
@@ -61,15 +61,11 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
+              "version": "[7.0.14, 7.0.14]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
+              "version": "[7.0.14, 7.0.14]"
             }
           ],
           "frameworkReferences": {
@@ -77,21 +73,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\Domain\\Domain.csproj": {
+    "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Domain/Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\Domain\\Domain.csproj",
+        "projectUniqueName": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Domain/Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\tomim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\Domain\\obj\\",
+        "projectPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Domain/Domain.csproj",
+        "packagesPath": "/Users/IHSSAN/.nuget/packages/",
+        "outputPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tomim\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/IHSSAN/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -134,15 +130,11 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
+              "version": "[7.0.14, 7.0.14]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
+              "version": "[7.0.14, 7.0.14]"
             }
           ],
           "frameworkReferences": {
@@ -150,21 +142,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\EfcDataAccess\\EfcDataAccess.csproj": {
+    "/Users/IHSSAN/RiderProjects/Greenhouse-backend/EfcDataAccess/EfcDataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\EfcDataAccess\\EfcDataAccess.csproj",
+        "projectUniqueName": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/EfcDataAccess/EfcDataAccess.csproj",
         "projectName": "EfcDataAccess",
-        "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\EfcDataAccess\\EfcDataAccess.csproj",
-        "packagesPath": "C:\\Users\\tomim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\EfcDataAccess\\obj\\",
+        "projectPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/EfcDataAccess/EfcDataAccess.csproj",
+        "packagesPath": "/Users/IHSSAN/.nuget/packages/",
+        "outputPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/EfcDataAccess/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tomim\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/IHSSAN/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -176,11 +168,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\Application\\Application.csproj"
+              "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Application/Application.csproj": {
+                "projectPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Application/Application.csproj"
               },
-              "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\Domain\\Domain.csproj"
+              "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Domain/Domain.csproj": {
+                "projectPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Domain/Domain.csproj"
               }
             }
           }
@@ -224,15 +216,11 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
+              "version": "[7.0.14, 7.0.14]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
+              "version": "[7.0.14, 7.0.14]"
             }
           ],
           "frameworkReferences": {
@@ -240,21 +228,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\WebAPI\\WebAPI.csproj": {
+    "/Users/IHSSAN/RiderProjects/Greenhouse-backend/WebAPI/WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/WebAPI/WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\WebAPI\\WebAPI.csproj",
-        "packagesPath": "C:\\Users\\tomim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\WebAPI\\obj\\",
+        "projectPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/WebAPI/WebAPI.csproj",
+        "packagesPath": "/Users/IHSSAN/.nuget/packages/",
+        "outputPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/WebAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tomim\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/IHSSAN/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -266,11 +254,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\Application\\Application.csproj"
+              "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Application/Application.csproj": {
+                "projectPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/Application/Application.csproj"
               },
-              "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\EfcDataAccess\\EfcDataAccess.csproj": {
-                "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\greenhouse-backend-cloud\\EfcDataAccess\\EfcDataAccess.csproj"
+              "/Users/IHSSAN/RiderProjects/Greenhouse-backend/EfcDataAccess/EfcDataAccess.csproj": {
+                "projectPath": "/Users/IHSSAN/RiderProjects/Greenhouse-backend/EfcDataAccess/EfcDataAccess.csproj"
               }
             }
           }
@@ -293,6 +281,10 @@
               "target": "Package",
               "version": "[7.0.11, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
@@ -312,19 +304,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
+              "version": "[7.0.14, 7.0.14]"
             },
             {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[7.0.17, 7.0.17]"
+              "name": "Microsoft.NETCore.App.Host.osx-arm64",
+              "version": "[7.0.14, 7.0.14]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
+              "version": "[7.0.14, 7.0.14]"
             }
           ],
           "frameworkReferences": {
@@ -335,7 +323,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  proxy:
+    image:
+      sep4backendregistry.azurecr.io/proxy:latest
+    ports:
+      - "80"
+  backend:
+    image:
+      sep4backendregistry.azurecr.io/backend:v1
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:7128
+  
+  frontend:
+    image:
+      sep4frontend2024.azurecr.io/green-house-dev:v1
+    environment:
+      - REACT_APP_BACKEND_URL=http://backend:7128
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - backend

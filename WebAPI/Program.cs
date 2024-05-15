@@ -46,6 +46,7 @@ builder.Services.AddScoped<IMeasurementDao<Temperature>, MeasurementDao<Temperat
 builder.Services.AddScoped<IMeasurementDao<Humidity>, MeasurementDao<Humidity>>();
 builder.Services.AddScoped<INotificationDao, NotificationDao>();
 builder.Services.AddScoped<INotificationLogic, NotificationLogic>();
+builder.Services.AddScoped<ICryptoLogic, CryptoLogic>();
 
 AuthorizationPolicies.AddPolicies(builder.Services);
 
@@ -76,7 +77,7 @@ app.UseCors(x => x
     .AllowAnyHeader()
     .SetIsOriginAllowed(origin => true) // allow any origin
     .AllowCredentials());
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseAuthentication();
 
 app.UseAuthorization();

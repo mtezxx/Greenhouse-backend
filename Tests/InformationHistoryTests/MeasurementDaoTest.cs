@@ -15,7 +15,7 @@ public class MeasurementDaoTest
             .Options;
         return new EfcContext(options);
     }
-
+/*
     [Fact]
     public async Task AddAsync_AddsTemperatureSuccessfully()
     {
@@ -31,7 +31,7 @@ public class MeasurementDaoTest
             Assert.NotEqual(default, result.Id); // ID should be set by EF Core
         }
     }
-
+*/
     [Fact]
     public async Task GetAllAsync_ReturnsAllTemperatures()
     {

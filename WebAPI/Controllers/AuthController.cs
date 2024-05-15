@@ -10,7 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 namespace WebAPI.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
     private readonly IConfiguration config;
@@ -65,7 +65,7 @@ public class AuthController : ControllerBase
         {
             User user = await authLogic.ValidateUser(userLoginDto.Username, userLoginDto.Password);
             string token = GenerateJwt(user);
-    
+            Console.WriteLine(userLoginDto);
             return Ok(token);
         }
         catch (Exception e)
