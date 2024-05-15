@@ -65,7 +65,7 @@ public class AuthController : ControllerBase
         {
             User user = await authLogic.ValidateUser(userLoginDto.Username, userLoginDto.Password);
             string token = GenerateJwt(user);
-    
+            Console.WriteLine(userLoginDto);
             return Ok(token);
         }
         catch (Exception e)
