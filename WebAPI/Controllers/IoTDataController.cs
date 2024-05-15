@@ -8,7 +8,7 @@ namespace WebAPI.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class IoTDataController : ControllerBase
-{
+{/*
     private readonly IMeasurementLogic _measurementLogic;
     private readonly ICryptoLogic _cryptoLogic;
 
@@ -17,7 +17,7 @@ public class IoTDataController : ControllerBase
         _measurementLogic = measurementLogic;
         _cryptoLogic = cryptoService;
     }
-    
+
 
     [HttpPost("upload")]
     public async Task<IActionResult> ReceiveData([FromBody] string encryptedDataHex)
@@ -41,4 +41,5 @@ public class IoTDataController : ControllerBase
             return BadRequest($"An error occurred: {ex.Message}");
         }
     }
+    */
 }

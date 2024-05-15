@@ -20,37 +20,27 @@ public class MeasurementDao<T> : IMeasurementDao<T> where T : Measurement, new()
             .ToListAsync();
     }
 
-    public async Task AddAsync(T measurement)
-    {
-        try
+    public async Task<T> AddAsync(T measurement)
+    
         {
             _context.Set<T>().Add(measurement);
             await _context.SaveChangesAsync();
+            return measurement;
         }
-        catch (Exception ex)
+
+        public async Task<T> GetLatestAsync(string type)
         {
-            Console.WriteLine("Error saving to database: " + ex.Message);
-            throw;  // Rethrow or handle as necessary
-        }
-    }
+            var result = await _context.Set<T>()
+                .Where(m => m.Type == type)
+                .OrderByDescending(m => m.Id)
+                .FirstOrDefaultAsync();
 
-    public async Task SaveChangesAsync()
-    {
-        await _context.SaveChangesAsync();
-    }
+            if (result == null)
+            {
+                throw new Exception("No results found.");
+            }
 
-    public async Task<T> GetLatestAsync(string type)
-    {
-        var result = await _context.Set<T>()
-            .Where(m => m.Type == type)
-            .OrderByDescending(m => m.Id)
-            .FirstOrDefaultAsync();
-
-        if (result == null)
-        {
-            throw new Exception("No results found.");
+            return result;
         }
     
-        return result;
-    }
 }

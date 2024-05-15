@@ -11,36 +11,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="711ea8e7-0533-4362-bc1b-1e35ef0eb388" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/EmailManualTest/EmailManualTest.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmailManualTest/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Greenhouse-backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Greenhouse-backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Logic/EmailLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Logic/EmailLogic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/Domain.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/Domain.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/Domain.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EfcDataAccess/Greenhouse.db" beforeDir="false" afterPath="$PROJECT_DIR$/EfcDataAccess/Greenhouse.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EfcDataAccess/Greenhouse.db-shm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EfcDataAccess/Greenhouse.db-wal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EfcDataAccess/obj/Debug/net7.0/EfcDataAccess.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EfcDataAccess/obj/Debug/net7.0/EfcDataAccess.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EfcDataAccess/obj/Debug/net7.0/EfcDataAccess.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/EfcDataAccess/obj/Debug/net7.0/EfcDataAccess.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HttpClients/obj/Debug/net7.0/HttpClients.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HttpClients/obj/Debug/net7.0/HttpClients.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HttpClients/obj/Debug/net7.0/HttpClients.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/HttpClients/obj/Debug/net7.0/HttpClients.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/EmailTests/EmailLogicTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/EmailTests/EmailLogicTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/Controllers/EmailController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/Controllers/EmailController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Logic/CryptoLogic.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/LogicInterfaces/ICryptoLogic.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EfcDataAccess/DAOs/MeasurementDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EfcDataAccess/DAOs/MeasurementDao.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebAPI/Controllers/IoTDataController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/Controllers/IoTDataController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/WebAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/WebAPI.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/WebAPI.exe" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/WebAPI.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/WebAPI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/WebAPI.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebAPI/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/ref/WebAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/ref/WebAPI.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/refint/WebAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/refint/WebAPI.dll" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +59,7 @@
     &quot;HTTP Request.WebApiTests | #1.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;97-experimental&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
