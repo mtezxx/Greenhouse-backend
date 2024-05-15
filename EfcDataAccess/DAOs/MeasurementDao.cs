@@ -38,4 +38,19 @@ public class MeasurementDao<T> : IMeasurementDao<T> where T : Measurement, new()
     {
         await _context.SaveChangesAsync();
     }
+
+    public async Task<T> GetLatestAsync(string type)
+    {
+        var result = await _context.Set<T>()
+            .Where(m => m.Type == type)
+            .OrderByDescending(m => m.Id)
+            .FirstOrDefaultAsync();
+
+        if (result == null)
+        {
+            throw new Exception("No results found.");
+        }
+    
+        return result;
+    }
 }

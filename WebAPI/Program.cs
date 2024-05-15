@@ -1,9 +1,12 @@
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using Application.DaoInterfaces;
 using Application.Logic;
 using Application.LogicInterfaces;
 using Domain.Auth;
 using Domain.Entity;
+using DotNetEnv;
 using EfcDataAccess;
 using EfcDataAccess.DAOs;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -11,14 +14,32 @@ using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+DotNetEnv.Env.TraversePath().Load();
+
+builder.Services.AddTransient<SmtpClient>(_ =>
+{
+    var client = new SmtpClient("bulk.smtp.mailtrap.io", 587)
+    {
+        Credentials = new NetworkCredential(Environment.GetEnvironmentVariable("EMAIL_USERNAME"), Environment.GetEnvironmentVariable("EMAIL_PASSWORD")),
+        EnableSsl = true
+    };
+    return client;
+});
+
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
 builder.Services.AddScoped<IAuthLogic, AuthLogic>();
 builder.Services.AddScoped<IMeasurementLogic, MeasurementLogic>();
+builder.Services.AddScoped<IThresholdLogic, ThresholdLogic>();
+builder.Services.AddScoped<IThresholdDao, ThresholdDao>();
+builder.Services.AddScoped<IEmailLogic, EmailLogic>();
+builder.Services.AddScoped<IEmailDao, EmailDao>();
 builder.Services.AddScoped<IAuthDao, AuthDao>();
 builder.Services.AddDbContext<EfcContext>();
 builder.Services.AddScoped<IMeasurementDao<Temperature>, MeasurementDao<Temperature>>();
