@@ -4,7 +4,7 @@ EXPOSE 7128
 
 ENV ASPNETCORE_URLS=http://+:7128
 
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+FROM --platform=linux/amd64 mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ["Domain/Domain.csproj", "Domain/"]
 COPY ["Application/Application.csproj", "Application/"]
@@ -17,8 +17,12 @@ RUN dotnet build "WebAPI.csproj" -c Release -o /app
 
 FROM build AS publish
 RUN dotnet publish -c Release -o /app
+COPY --from=build /src/EfcDataAccess/Greenhouse2.db /app
 
 FROM base AS final
+RUN mkdir /Database
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "WebAPI.dll"]
+COPY start.sh /
+RUN chmod +x /start.sh
+ENTRYPOINT ["/start.sh"]
