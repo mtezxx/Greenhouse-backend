@@ -17,6 +17,16 @@ namespace EfcDataAccess.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.18");
 
+            modelBuilder.Entity("Domain.Entity.EmailNotification", b =>
+                {
+                    b.Property<string>("Email")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Email");
+
+                    b.ToTable("EmailNotifications");
+                });
+
             modelBuilder.Entity("Domain.Entity.Measurement", b =>
                 {
                     b.Property<int>("Id")
@@ -64,6 +74,27 @@ namespace EfcDataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Notifications");
+                });
+
+            modelBuilder.Entity("Domain.Entity.Threshold", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("maxValue")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("minValue")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Thresholds");
                 });
 
             modelBuilder.Entity("Domain.Entity.User", b =>

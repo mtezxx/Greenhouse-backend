@@ -10,6 +10,8 @@ public class EfcContext : DbContext
     public DbSet<Measurement> Measurements { get; set; }
 
     public DbSet<Notification> Notifications { get; set; }
+    public DbSet<Threshold> Thresholds { get; set; }
+    public DbSet<EmailNotification> EmailNotifications { get; set; }
     public EfcContext() : base() { } 
 
     public EfcContext(DbContextOptions<EfcContext> options) : base(options)
@@ -39,5 +41,12 @@ public class EfcContext : DbContext
             .Property(m => m.Time)
             .HasDefaultValueSql("CURRENT_TIMESTAMP");
         modelBuilder.Entity<Notification>().HasKey(n => n.Id);
+        modelBuilder.Entity<Threshold>().HasKey(n => n.Id);
+        modelBuilder.Entity<EmailNotification>(entity =>
+        {
+            entity.HasKey(e => e.Email);
+            entity.Ignore(e => e.Title);
+            entity.Ignore(e => e.Body);
+        });
     }
 }

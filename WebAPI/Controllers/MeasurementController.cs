@@ -24,4 +24,17 @@ public class MeasurementController : ControllerBase
         }
         return NotFound($"No measurements found for type: {type}");
     }
+
+    [HttpGet("latest+measurement")]
+    public async Task<IActionResult> GetLatestAsync([FromQuery] string type)
+    {
+        var result = await _measurementLogic.GetLatestAsync(type);
+
+        if (result == null)
+        {
+            return NotFound("No measurement found.");
+        }
+
+        return Ok(result);
+    }
 }
