@@ -13,7 +13,7 @@ public class EmailLogicTest
     private Mock<IThresholdDao> _thresholdDaoMock;
     private Mock<IMeasurementDao<Temperature>> _temperatureDaoMock;
     private Mock<IMeasurementDao<Humidity>> _humidityDaoMock;
-    private Mock<ISmtpClient> _smtpClientMock;
+    private Mock<SmtpClient> _smtpClientMock;
     private EmailLogic _emailLogic;
 
     public EmailLogicTest()
@@ -27,7 +27,7 @@ public class EmailLogicTest
         _thresholdDaoMock = new Mock<IThresholdDao>();
         _temperatureDaoMock = new Mock<IMeasurementDao<Temperature>>();
         _humidityDaoMock = new Mock<IMeasurementDao<Humidity>>();
-        _smtpClientMock = new Mock<ISmtpClient>();
+        _smtpClientMock = new Mock<SmtpClient>();
 
         _emailLogic = new EmailLogic(_emailDaoMock.Object, _thresholdDaoMock.Object, _temperatureDaoMock.Object, _humidityDaoMock.Object, _smtpClientMock.Object);
     }

@@ -15,23 +15,15 @@ public class EmailLogic : IEmailLogic
     private readonly IThresholdDao _thresholdDao;
     private readonly IMeasurementDao<Temperature> _temperatureDao;
     private readonly IMeasurementDao<Humidity> _humidityDao;
-    private readonly ISmtpClient _smtpClient;
+    private readonly SmtpClient _smtpClient;
 
-    public EmailLogic(IEmailDao emailDao, IThresholdDao thresholdDao, IMeasurementDao<Temperature> temperatureDao, IMeasurementDao<Humidity> humidityDao, ISmtpClient smtpClient)
+    public EmailLogic(IEmailDao emailDao, IThresholdDao thresholdDao, IMeasurementDao<Temperature> temperatureDao, IMeasurementDao<Humidity> humidityDao, SmtpClient smtpClient)
     {
         _emailDao = emailDao;
         _thresholdDao = thresholdDao;
         _temperatureDao = temperatureDao;
         _humidityDao = humidityDao;
         _smtpClient = smtpClient;
-        
-        // DotNetEnv.Env.TraversePath().Load();
-        // _smtpClient = new SmtpClient("smtp.gmail.com")
-        // {
-        //     Port = 587,
-        //     Credentials = new NetworkCredential(Environment.GetEnvironmentVariable("EMAIL_USERNAME"), Environment.GetEnvironmentVariable("EMAIL_PASSWORD")),
-        //     EnableSsl = true,
-        // };
     }
     public async Task<EmailDto> CreateAsync(EmailDto dto)
     {
@@ -97,15 +89,22 @@ public class EmailLogic : IEmailLogic
     {
         var temperature = await _temperatureDao.GetLatestAsync(type);
         var threshold = await _thresholdDao.GetByTypeAsync(type);
+        var emailDto = await _emailDao.GetAsync();
+        
+        
 
         if (temperature.Value > threshold.maxValue || temperature.Value < threshold.minValue)
         {
-            var message = new MailMessage("from@example.com", "to@example.com")
+            try
             {
-                Subject = "Threshold Exceeded",
-                Body = $"The {type} value {temperature.Value} exceeded the threshold."
-            };
-            _smtpClient.Send(message);
+                var message = $"The {type} value {temperature.Value} exceeded the threshold.";
+                _smtpClient.Send("mailtrap@demomailtrap.com", "tomi.masiar@gmail.com", "Threshold Warning", message);
+            }
+            catch (SmtpException ex)
+            {
+                // Handle or log the exception
+                throw new Exception("Failed to send email.", ex);
+            }
         }
     }
 }

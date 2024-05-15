@@ -1,3 +1,4 @@
+using System.Net.Mail;
 using Application.LogicInterfaces;
 using Domain.DTOs;
 using Domain.Entity;
@@ -12,10 +13,12 @@ namespace WebAPI.Controllers;
 public class EmailController : ControllerBase
 {
     private readonly IEmailLogic _emailLogic;
+    private readonly SmtpClient _client;
 
-    public EmailController(IEmailLogic emailLogic)
+    public EmailController(IEmailLogic emailLogic, SmtpClient client)
     {
         _emailLogic = emailLogic;
+        _client = client;
     }
 
     [HttpGet]
@@ -51,6 +54,13 @@ public class EmailController : ControllerBase
             Console.WriteLine(e);
             return StatusCode(500, e.Message);
         }
+    }
+
+    [HttpPost("check")]
+    public async Task<IActionResult> CheckIfInRange([FromQuery] string type)
+    {
+        await _emailLogic.CheckIfInRange(type);
+        return Ok("Email check triggered.");
     }
 
 
