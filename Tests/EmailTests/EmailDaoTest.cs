@@ -92,4 +92,12 @@ public class EmailDaoTest : DbTestBase
     {
         await Assert.ThrowsAsync<Exception>(() => _emailDao.GetAsync());
     }
+    
+    [Fact]
+    public async Task CreateAsync_ThrowsArgumentException_WhenEmailIsEmpty()
+    {
+        var notificationEmail = new EmailNotification { Email = string.Empty };
+
+        await Assert.ThrowsAsync<ArgumentException>(() => _emailDao.CreateAsync(notificationEmail));
+    }
 }
