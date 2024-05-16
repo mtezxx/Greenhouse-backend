@@ -1,51 +1,116 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Xunit;
+using Application.DaoInterfaces;
 using Domain.Entity;
 using EfcDataAccess;
 using EfcDataAccess.DAOs;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Xunit;
 
-public class MeasurementDaoTest
+namespace Tests.EfcDataAccess.DAOs
 {
-    private EfcContext CreateContext()
+    public class MeasurementDaoTest
     {
-        var options = new DbContextOptionsBuilder<EfcContext>()
-            .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()) // Ensure a unique name
-            .Options;
-        return new EfcContext(options);
-    }
-/*
-    [Fact]
-    public async Task AddAsync_AddsTemperatureSuccessfully()
-    {
-        using (var context = CreateContext())
+        private DbContextOptions<EfcContext> CreateNewContextOptions()
         {
-            var dao = new MeasurementDao<Temperature>(context);
-            var temperature = new Temperature { Value = 25.5, Time = DateTime.Now };
+            // Create a fresh service provider, and therefore a fresh
+            // InMemory database instance.
+            var serviceProvider = new ServiceCollection()
+                .AddEntityFrameworkInMemoryDatabase()
+                .BuildServiceProvider();
 
-            var result = await dao.AddAsync(temperature);
-            await context.SaveChangesAsync();
+            var builder = new DbContextOptionsBuilder<EfcContext>();
+            builder.UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+                   .UseInternalServiceProvider(serviceProvider);
 
-            Assert.Equal(25.5, result.Value);
-            Assert.NotEqual(default, result.Id); // ID should be set by EF Core
+            return builder.Options;
         }
-    }
-*/
-    [Fact]
-    public async Task GetAllAsync_ReturnsAllTemperatures()
-    {
-        using (var context = CreateContext())
+
+        [Fact]
+        public async Task GetAllAsync_ReturnsAllMeasurements()
         {
-            var dao = new MeasurementDao<Temperature>(context);
-            context.Add(new Temperature { Value = 22.1, Time = DateTime.Now });
-            context.Add(new Temperature { Value = 23.5, Time = DateTime.Now });
-            context.SaveChanges();
+            var options = CreateNewContextOptions();
 
-            var results = await dao.GetAllAsync();
+            using (var context = new EfcContext(options))
+            {
+                var dao = new MeasurementDao<Temperature>(context);
+                context.Add(new Temperature { Value = 22.1, Time = DateTime.Now, Type = "Temperature" });
+                context.Add(new Temperature { Value = 23.5, Time = DateTime.Now, Type = "Temperature" });
+                context.SaveChanges();
+            }
 
-            Assert.Equal(2, results.Count);
-            Assert.All(results, item => Assert.IsType<Temperature>(item));
+            using (var context = new EfcContext(options))
+            {
+                var dao = new MeasurementDao<Temperature>(context);
+                var results = await dao.GetAllAsync();
+
+                Assert.Equal(2, results.Count);
+                Assert.All(results, item => Assert.IsType<Temperature>(item));
+            }
+        }
+
+        [Fact]
+        public async Task AddAsync_AddsMeasurementSuccessfully()
+        {
+            var options = CreateNewContextOptions();
+
+            using (var context = new EfcContext(options))
+            {
+                var dao = new MeasurementDao<Temperature>(context);
+                var temperature = new Temperature { Value = 25.5, Time = DateTime.Now, Type = "Temperature" };
+
+                var result = await dao.AddAsync(temperature);
+                await context.SaveChangesAsync();
+
+                Assert.Equal(25.5, result.Value);
+                Assert.NotEqual(default, result.Id); // ID should be set by EF Core
+            }
+
+            using (var context = new EfcContext(options))
+            {
+                var measurementInDb = await context.Set<Temperature>().FirstOrDefaultAsync();
+                Assert.NotNull(measurementInDb);
+                Assert.Equal(25.5, measurementInDb.Value);
+            }
+        }
+
+        [Fact]
+        public async Task GetLatestAsync_ReturnsLatestMeasurement()
+        {
+            var options = CreateNewContextOptions();
+
+            using (var context = new EfcContext(options))
+            {
+                var dao = new MeasurementDao<Temperature>(context);
+                context.Add(new Temperature { Value = 22.1, Time = DateTime.Now.AddHours(-1), Type = "Temperature" });
+                context.Add(new Temperature { Value = 23.5, Time = DateTime.Now, Type = "Temperature" });
+                context.SaveChanges();
+            }
+
+            using (var context = new EfcContext(options))
+            {
+                var dao = new MeasurementDao<Temperature>(context);
+                var result = await dao.GetLatestAsync("Temperature");
+
+                Assert.NotNull(result);
+                Assert.Equal(23.5, result.Value);
+            }
+        }
+
+        [Fact]
+        public async Task GetLatestAsync_ThrowsException_WhenNoMeasurementFound()
+        {
+            var options = CreateNewContextOptions();
+
+            using (var context = new EfcContext(options))
+            {
+                var dao = new MeasurementDao<Temperature>(context);
+
+                await Assert.ThrowsAsync<Exception>(() => dao.GetLatestAsync("Temperature"));
+            }
         }
     }
 }

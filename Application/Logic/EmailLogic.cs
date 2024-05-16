@@ -43,41 +43,6 @@ public class EmailLogic : IEmailLogic
 
         return await _emailDao.CreateAsync(email);
     }
-
-    // private void sendMail(string warning)
-    // {
-    //     MailMessage message = new MailMessage
-    //     {
-    //         From = new MailAddress("greenhouse.notifications01@gmail.com"),
-    //         Subject = "Threshold Warning",
-    //         Body = @"
-    //             <html>
-    //             <head>
-    //                 <style>
-    //                     body {
-    //                         font-size: 13px;
-    //                     }
-    //                     h1 {
-    //                         color: #13910C;
-    //                         font-size: 20px;
-    //                         margin-bottom: 16px;
-    //                     }
-    //                     p {
-    //                         margin-bottom: 10px;
-    //                     }
-    //                 </style>
-    //             </head>
-    //             <body>
-    //                 <h1>" + warning + @"</h1>
-    //             </body>
-    //             </html>",
-    //         IsBodyHtml = true
-    //     };
-    //
-    //     message.To.Add(_emailDao.GetAsync().Result.Email);
-    //     _smtpClient.Send(message);
-    // }
-    
     
 
     public async Task<EmailDto> GetAsync()
