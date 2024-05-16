@@ -35,4 +35,11 @@ public class AuthDao : IAuthDao
 
         return user;
     }
+    
+    public async Task<User> CreateUserAsync(User user) // Add this method
+    {
+        context.Users.Add(user);
+        await context.SaveChangesAsync();
+        return user;
+    }
 }

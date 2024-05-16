@@ -9,9 +9,12 @@ services:
   backend:
     image:
       sep4backendregistry.azurecr.io/backend:v1
+    volumes:
+      - ${WEBAPP_STORAGE_HOME}:/Database
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:7128
+      - DBDIR=/Database
   
   frontend:
     image:
