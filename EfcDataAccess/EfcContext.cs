@@ -21,8 +21,14 @@ public class EfcContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-       
-        optionsBuilder.UseSqlite("Data Source = ../EfcDataAccess/Greenhouse.db");
+        if (String.IsNullOrEmpty(Environment.GetEnvironmentVariable("DBDIR")))
+        {
+            optionsBuilder.UseSqlite("Data Source = ../EfcDataAccess/Greenhouse.db");
+        }
+        else
+        {
+            optionsBuilder.UseSqlite("Data Source = "+Environment.GetEnvironmentVariable("DBDIR")+"/Greenhouse.db");
+        }
         optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         
     }

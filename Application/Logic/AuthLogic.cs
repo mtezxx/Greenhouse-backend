@@ -1,5 +1,6 @@
 using Application.DaoInterfaces;
 using Application.LogicInterfaces;
+using Domain.DTOs;
 using Domain.Entity;
 
 namespace Application.Logic;
@@ -34,5 +35,22 @@ public class AuthLogic : IAuthLogic
     {
         User? user = await authDao.ValidateUserAsync(username, password);
         return user ?? throw new Exception("User validation failed");
+    }
+    
+    public async Task<User> CreateUser(UserCreationDTO userCreationDto) // Add this method
+    {
+        User existingUser = await authDao.GetUserByUsernameAsync(userCreationDto.UserName);
+        if (existingUser != null)
+        {
+            throw new Exception("Username already taken");
+        }
+
+        User newUser = new User
+        {
+            UserName = userCreationDto.UserName,
+            Password = userCreationDto.Password
+        };
+
+        return await authDao.CreateUserAsync(newUser);
     }
 }

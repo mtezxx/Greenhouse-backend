@@ -73,5 +73,19 @@ public class AuthController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+    
+    [HttpPost("register")] 
+    public async Task<ActionResult> Register([FromBody] UserCreationDTO userCreationDto)
+    {
+        try
+        {
+            User newUser = await authLogic.CreateUser(userCreationDto);
+            return CreatedAtAction(nameof(Login), new { username = newUser.UserName }, newUser);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
 }
 
