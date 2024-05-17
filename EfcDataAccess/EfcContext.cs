@@ -36,7 +36,8 @@ public class EfcContext : DbContext
         modelBuilder.Entity<Measurement>()
             .HasDiscriminator<string>("Type")
             .HasValue<Temperature>("Temperature")
-            .HasValue<Humidity>("Humidity");
+            .HasValue<Humidity>("Humidity")
+            .HasValue<Light>("Light");
         modelBuilder.Entity<Measurement>()
             .Property(m => m.Time)
             .HasDefaultValueSql("CURRENT_TIMESTAMP");

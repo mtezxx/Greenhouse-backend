@@ -9,13 +9,15 @@ public class MeasurementLogicTest
 {
     private readonly Mock<IMeasurementDao<Temperature>> _mockTemperatureDao;
     private readonly Mock<IMeasurementDao<Humidity>> _mockHumidityDao;
+    private readonly Mock<IMeasurementDao<Light>> _mockLightDao;
     private readonly MeasurementLogic _measurementLogic;
 
     public MeasurementLogicTest()
     {
         _mockTemperatureDao = new Mock<IMeasurementDao<Temperature>>();
         _mockHumidityDao = new Mock<IMeasurementDao<Humidity>>();
-        _measurementLogic = new MeasurementLogic(_mockTemperatureDao.Object, _mockHumidityDao.Object);
+        _mockLightDao = new Mock<IMeasurementDao<Light>>();
+        _measurementLogic = new MeasurementLogic(_mockTemperatureDao.Object, _mockHumidityDao.Object, _mockLightDao.Object);
     }
     [Fact]
     public async Task GetAllMeasurements_ReturnsTemperatures_WhenTypeIsTemperature()

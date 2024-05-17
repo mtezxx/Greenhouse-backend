@@ -7,7 +7,7 @@ namespace WebAPI.Controllers;
 
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class ThresholdController : ControllerBase
 {
     private readonly IThresholdLogic _thresholdLogic;

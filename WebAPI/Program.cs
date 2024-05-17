@@ -44,6 +44,7 @@ builder.Services.AddScoped<IAuthDao, AuthDao>();
 builder.Services.AddDbContext<EfcContext>();
 builder.Services.AddScoped<IMeasurementDao<Temperature>, MeasurementDao<Temperature>>();
 builder.Services.AddScoped<IMeasurementDao<Humidity>, MeasurementDao<Humidity>>();
+builder.Services.AddScoped<IMeasurementDao<Light>, MeasurementDao<Light>>();
 builder.Services.AddScoped<INotificationDao, NotificationDao>();
 builder.Services.AddScoped<INotificationLogic, NotificationLogic>();
 
