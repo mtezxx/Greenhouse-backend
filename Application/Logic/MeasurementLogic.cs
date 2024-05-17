@@ -9,11 +9,13 @@ public class MeasurementLogic : IMeasurementLogic
 {
     private readonly IMeasurementDao<Temperature> _temperatureDao;
     private readonly IMeasurementDao<Humidity> _humidityDao;
+    private readonly IMeasurementDao<Light> _lightDao;
 
-    public MeasurementLogic(IMeasurementDao<Temperature> temperatureDao, IMeasurementDao<Humidity> humidityDao)
+    public MeasurementLogic(IMeasurementDao<Temperature> temperatureDao, IMeasurementDao<Humidity> humidityDao, IMeasurementDao<Light> lightDao)
     {
         _temperatureDao = temperatureDao;
         _humidityDao = humidityDao;
+        _lightDao = lightDao;
     }
 
     public async Task<List<MeasurementDto>> GetAllMeasurements(string type)
@@ -29,6 +31,11 @@ public class MeasurementLogic : IMeasurementLogic
         {
             var hums = await _humidityDao.GetAllAsync();
             measurements.AddRange(hums);
+        }
+        else if (type.Equals("Light", StringComparison.OrdinalIgnoreCase))
+        {
+            var lights = await _lightDao.GetAllAsync();
+            measurements.AddRange(lights);
         }
         else
         {
@@ -54,9 +61,60 @@ public class MeasurementLogic : IMeasurementLogic
             return dto;
         }
 
+        if (type == "Light")
+        {
+            Light light = await _lightDao.GetLatestAsync("Light");
+            MeasurementDto dto = new MeasurementDto { Value = light.Value, Time = light.Time, Type = light.Type };
+            return dto;
+        }
+
         else
         {
             throw new Exception("Invalid measurement type.");
+        }
+    }
+
+    public async Task<MeasurementDto> AddAsync(MeasurementDto dto)
+    {
+        if (dto.Type == "Temperature")
+        {
+            Temperature temp = new Temperature { Value = dto.Value, Time = dto.Time, Type = dto.Type };
+            var result = await _temperatureDao.AddAsync(temp);
+            MeasurementDto dtoResult = new MeasurementDto()
+            {
+                Value = result.Value,
+                Time = dto.Time,
+                Type = dto.Type
+            };
+            return dtoResult;
+        }
+        if (dto.Type == "Humidity")
+        {
+            Humidity hum = new Humidity { Value = dto.Value, Time = dto.Time, Type = dto.Type };
+            var result = await _humidityDao.AddAsync(hum);
+            MeasurementDto dtoResult = new MeasurementDto()
+            {
+                Value = result.Value,
+                Time = dto.Time,
+                Type = dto.Type
+            };
+            return dtoResult;
+        }
+        if (dto.Type == "Light")
+        {
+            Light light = new Light { Value = dto.Value, Time = dto.Time, Type = dto.Type };
+            var result = await _lightDao.AddAsync(light);
+            MeasurementDto dtoResult = new MeasurementDto()
+            {
+                Value = result.Value,
+                Time = dto.Time,
+                Type = dto.Type
+            };
+            return dtoResult;
+        }
+        else
+        {
+            throw new Exception("Wrong measurement type.");
         }
     }
 }
