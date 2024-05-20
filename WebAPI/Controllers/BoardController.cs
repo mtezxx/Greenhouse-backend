@@ -42,7 +42,8 @@ public class BoardController : ControllerBase
             byte commandCode = 1; // Assuming commandCode as 1 (update) for example
             byte ledStatus = 1;   // Assuming LED status as 1 (on) for example
             byte servoStatus = 1; // Assuming Servo status as 1 (open) for example
-            byte[] responseData = _encryptionService.PrepareDataForResponse(boardId, timestamp, commandCode, ledStatus, servoStatus);
+            uint currentTimestamp = (uint)DateTimeOffset.UtcNow.ToUnixTimeSeconds(); // Current time for the response
+            byte[] responseData = _encryptionService.PrepareDataForResponse(boardId, currentTimestamp, commandCode, ledStatus, servoStatus);
             byte[] responseEncrypted = _encryptionService.Encrypt(responseData);
             string responseEncryptedHex = _encryptionService.ToHexString(responseEncrypted);
 
