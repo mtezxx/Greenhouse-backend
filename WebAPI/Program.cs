@@ -47,7 +47,7 @@ builder.Services.AddScoped<IMeasurementDao<Humidity>, MeasurementDao<Humidity>>(
 builder.Services.AddScoped<IMeasurementDao<Light>, MeasurementDao<Light>>();
 builder.Services.AddScoped<INotificationDao, NotificationDao>();
 builder.Services.AddScoped<INotificationLogic, NotificationLogic>();
-
+builder.Services.AddScoped<IEncryptionService, EncryptionService>();
 AuthorizationPolicies.AddPolicies(builder.Services);
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
