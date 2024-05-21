@@ -8,6 +8,7 @@ public class EfcContext : DbContext
 {
     public DbSet<User> Users { get; set; }
     public DbSet<Measurement> Measurements { get; set; }
+    public DbSet<DeviceStatus> DeviceStatuses { get; set; }
 
     public DbSet<Notification> Notifications { get; set; }
     public DbSet<Threshold> Thresholds { get; set; }

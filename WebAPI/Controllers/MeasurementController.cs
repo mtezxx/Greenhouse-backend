@@ -52,4 +52,11 @@ public class MeasurementController : ControllerBase
 
         return Created("/measurement",result);
     }
+    
+    [HttpGet("all")]
+    public async Task<IActionResult> GetAllMeasurements()
+    {
+        var measurements = await _measurementLogic.GetAllMeasurements();
+        return Ok(measurements);
+    }
 }

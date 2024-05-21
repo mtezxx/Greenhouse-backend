@@ -10,13 +10,16 @@ public class BoardController : ControllerBase
 {
     private readonly IEncryptionService _encryptionService;
     private readonly IMeasurementLogic _measurementLogic;
+    private readonly IDeviceStatusLogic _deviceStatusLogic;
 
 
-    public BoardController(IEncryptionService encryptionService, IMeasurementLogic measurementLogic)
+    public BoardController(IEncryptionService encryptionService, IMeasurementLogic measurementLogic, IDeviceStatusLogic deviceStatusLogic)
     {
         _encryptionService = encryptionService;
         _measurementLogic = measurementLogic;
+        _deviceStatusLogic = deviceStatusLogic;
     }
+
 
     [HttpGet("{encryptedData}")]
     public async Task<IActionResult> GetBoardData(string encryptedData)
@@ -38,16 +41,59 @@ public class BoardController : ControllerBase
             await _measurementLogic.AddAsync(humidityMeasurement);
             await _measurementLogic.AddAsync(lightMeasurement);
             
-            // Encrypt the response with new structure
-            byte commandCode = 1; // Assuming commandCode as 1 (update) for example
-            byte ledStatus = 1;   // Assuming LED status as 1 (on) for example
-            byte servoStatus = 1; // Assuming Servo status as 1 (open) for example
+            var deviceStatus = await _deviceStatusLogic.GetDeviceStatusAsync();
+
             uint currentTimestamp = (uint)DateTimeOffset.UtcNow.ToUnixTimeSeconds(); // Current time for the response
-            byte[] responseData = _encryptionService.PrepareDataForResponse(boardId, currentTimestamp, commandCode, ledStatus, servoStatus);
+            byte[] responseData = _encryptionService.PrepareDataForResponse(boardId, currentTimestamp, deviceStatus.CommandCode, deviceStatus.LedStatus, deviceStatus.WindowStatus);
             byte[] responseEncrypted = _encryptionService.Encrypt(responseData);
             string responseEncryptedHex = _encryptionService.ToHexString(responseEncrypted);
 
+            await _deviceStatusLogic.ResetCommandCodeAsync();
+
             return Ok(new { encryptedResponse = responseEncryptedHex });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest($"An error occurred: {ex.Message}");
+        }
+    }
+    
+    [HttpPatch("update-status")]
+    public async Task<IActionResult> UpdateDeviceStatus([FromBody] DeviceStatusDto statusDto)
+    {
+        try
+        {
+            await _deviceStatusLogic.UpdateDeviceStatusAsync(statusDto.WindowStatus, statusDto.LedStatus);
+            return NoContent();
+        }
+        catch (Exception ex)
+        {
+            return BadRequest($"An error occurred: {ex.Message}");
+        }
+    }
+    
+    
+    [HttpGet("window-status")]
+    public async Task<IActionResult> GetWindowStatus()
+    {
+        try
+        {
+            var deviceStatus = await _deviceStatusLogic.GetDeviceStatusAsync();
+            return Ok(deviceStatus.WindowStatus);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest($"An error occurred: {ex.Message}");
+        }
+    }
+
+    [HttpGet("led-status")]
+    public async Task<IActionResult> GetLedStatus()
+    {
+        try
+        {
+            var deviceStatus = await _deviceStatusLogic.GetDeviceStatusAsync();
+            return Ok(deviceStatus.LedStatus);
         }
         catch (Exception ex)
         {
