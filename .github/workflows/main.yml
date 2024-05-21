@@ -1,4 +1,3 @@
-
 name: CI on Main
 
 on:
@@ -9,5 +8,6 @@ on:
 
 jobs:
   unit_test:
-    uses: .github/workflows/unit_test.yml
-    secrets: inherit 
+    uses: ./.github/workflows/unit_test.yaml@main
+    secrets: inherit
+    
