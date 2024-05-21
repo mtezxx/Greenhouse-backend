@@ -21,8 +21,14 @@ public class EfcContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-       
-        optionsBuilder.UseSqlite("Data Source = /app/EfcDataAccess/Greenhouse.db");
+        if (String.IsNullOrEmpty(Environment.GetEnvironmentVariable("DBDIR")))
+        {
+            optionsBuilder.UseSqlite("Data Source = ../EfcDataAccess/Greenhouse.db");
+        }
+        else
+        {
+            optionsBuilder.UseSqlite("Data Source = "+Environment.GetEnvironmentVariable("DBDIR")+"/Greenhouse.db");
+        }
         optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         
     }
@@ -36,7 +42,8 @@ public class EfcContext : DbContext
         modelBuilder.Entity<Measurement>()
             .HasDiscriminator<string>("Type")
             .HasValue<Temperature>("Temperature")
-            .HasValue<Humidity>("Humidity");
+            .HasValue<Humidity>("Humidity")
+            .HasValue<Light>("Light");
         modelBuilder.Entity<Measurement>()
             .Property(m => m.Time)
             .HasDefaultValueSql("CURRENT_TIMESTAMP");
