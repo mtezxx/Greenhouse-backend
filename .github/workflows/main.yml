@@ -2,13 +2,10 @@ name: CI on Main
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   unit_test:
-    uses: ./.github/workflows/unit_test.yaml
-    with:
-      EMAIL: ${{ secrets.EMAIL }}
-      EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+    uses: .github/workflows/unit_test.yaml
+    secrets: inherit
