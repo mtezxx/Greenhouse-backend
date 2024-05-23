@@ -1,3 +1,5 @@
+# .github/workflows/main.yml
+
 name: CI on Main
 
 on:
@@ -8,4 +10,6 @@ on:
 jobs:
   unit_test:
     uses: ./.github/workflows/unit_test.yaml
+    with:
+    # specify inputs if any
     secrets: inherit
