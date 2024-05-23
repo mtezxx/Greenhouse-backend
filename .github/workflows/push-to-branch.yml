@@ -6,7 +6,9 @@ on:
       - "!main"
 jobs:
   unit_test:
-        name: Unit Test
-        uses: mtezxx/greenhouse-backend-cloud/.github/workflows/unit_test.yml@main  # Use the unit_test.yml workflow
-        secrets: inherit 
+    name: Unit Test
+    uses: mtezxx/greenhouse-backend-cloud/.github/workflows/unit_test.yml@main  # Use the unit_test.yml workflow
+    secrets:
+      EMAIL: ${{ secrets.EMAIL }}
+      EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }} 
  
