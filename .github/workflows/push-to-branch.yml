@@ -1,0 +1,12 @@
+name: Test pushed commits
+on:
+  push:
+    branches:
+      - "*"
+      - "!main"
+jobs:
+  unit_test:
+        name: Unit Test
+        uses: mtezxx/greenhouse-backend-cloud/.github/workflows/unit_test.yml@main  # Use the unit_test.yml workflow
+        secrets: inherit 
+ 
