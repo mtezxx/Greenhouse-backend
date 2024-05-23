@@ -117,6 +117,13 @@ public class MeasurementLogic : IMeasurementLogic
             throw new Exception("Wrong measurement type.");
         }
     }
+    
+    public async Task<List<MeasurementDto>> GetAllMeasurements()
+    {
+        var measurements = await _temperatureDao.GetAllMeasurementsAsync();
+        return measurements.Select(m => new MeasurementDto { Value = m.Value, Time = m.Time, Type = m.Type }).ToList();
+    }
+
 }
 
 

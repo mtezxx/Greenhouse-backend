@@ -10,6 +10,7 @@ using DotNetEnv;
 using EfcDataAccess;
 using EfcDataAccess.DAOs;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -47,7 +48,9 @@ builder.Services.AddScoped<IMeasurementDao<Humidity>, MeasurementDao<Humidity>>(
 builder.Services.AddScoped<IMeasurementDao<Light>, MeasurementDao<Light>>();
 builder.Services.AddScoped<INotificationDao, NotificationDao>();
 builder.Services.AddScoped<INotificationLogic, NotificationLogic>();
-
+builder.Services.AddScoped<IEncryptionService, EncryptionService>();
+builder.Services.AddScoped<IDeviceStatusDao, DeviceStatusDao>();
+builder.Services.AddScoped<IDeviceStatusLogic, DeviceStatusLogic>();
 AuthorizationPolicies.AddPolicies(builder.Services);
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
@@ -70,6 +73,12 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<EfcContext>();
+    db.Database.Migrate();
 }
 
 app.UseCors(x => x

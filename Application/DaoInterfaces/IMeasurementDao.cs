@@ -7,4 +7,6 @@ public interface IMeasurementDao<T> where T : Measurement
     Task<List<T>> GetAllAsync();
     Task<T> AddAsync(T measurement);
     Task<T> GetLatestAsync(string type);
+    Task<List<Measurement>> GetAllMeasurementsAsync();
+
 }
