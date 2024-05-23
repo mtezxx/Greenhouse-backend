@@ -9,7 +9,5 @@ on:
 
 jobs:
   unit_test:
-    uses: ./.github/workflows/unit_test.yaml
-    with:
-    # specify inputs if any
+    uses: mtezxx/greenhouse-backend-cloud/.github/workflows/unit_test.yaml@main
     secrets: inherit
