@@ -7,5 +7,5 @@ on:
 
 jobs:
   unit_test:
-    uses: ./github/workflows/unit_test.yaml
+    uses: ./.github/workflows/unit_test.yaml
     secrets: inherit
