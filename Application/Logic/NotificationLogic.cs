@@ -56,9 +56,13 @@ public class NotificationLogic : INotificationLogic {
         string message;
         if (latestMeasurementValue > latestNotification.Threshold) {
             message = $"Latest {type} of {latestMeasurementValue.Value} is higher than the threshold of {latestNotification.Threshold}.";
-        } else {
+        } 
+      else  if (latestMeasurementValue < latestNotification.Threshold) {
             message = $"Latest {type} of {latestMeasurementValue.Value} is lower than the threshold of {latestNotification.Threshold}.";
-        }
+        } 
+       else {
+            message = $"Latest {type} of {latestMeasurementValue.Value} is equal to the threshold of {latestNotification.Threshold}.";
+        } 
 
         return new NotificationDto(latestNotification.Threshold, type, message);
     }

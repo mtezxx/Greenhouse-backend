@@ -67,17 +67,27 @@ public class EncryptionService : IEncryptionService
 
         public byte[] PrepareDataForResponse(ushort boardId, uint timestamp, byte commandCode, byte ledStatus, byte servoStatus)
         {
+            ushort transformedBoardId = (ushort)(boardId | 0x8000); // Or with 0x8000 to set the highest bit
+
             byte[] data = new byte[16];
 
-            BitConverter.GetBytes(boardId).CopyTo(data, 0);
-            BitConverter.GetBytes(timestamp).CopyTo(data, 2);
+            byte[] boardIdBytes = BitConverter.GetBytes(transformedBoardId);
+            Array.Reverse(boardIdBytes); // Reverse byte order
+            Array.Copy(boardIdBytes, 0, data, 0, 2);
+
+            byte[] timestampBytes = BitConverter.GetBytes(timestamp);
+            Array.Reverse(timestampBytes); // Reverse byte order
+            Array.Copy(timestampBytes, 0, data, 2, 4);
+
             data[6] = commandCode;
             data[7] = ledStatus;
             data[8] = servoStatus;
             // Unused bytes are already 0 by default in the array initialization
 
             ushort crc = ComputeChecksum(data, 0, 14);
-            BitConverter.GetBytes(crc).CopyTo(data, 14);
+            byte[] crcBytes = BitConverter.GetBytes(crc);
+            Array.Reverse(crcBytes); // Reverse byte order
+            Array.Copy(crcBytes, 0, data, 14, 2);
 
             return data;
         }
@@ -104,15 +114,33 @@ public class EncryptionService : IEncryptionService
             if (data.Length < 16)
                 throw new ArgumentException("Data is too short!");
 
-            ushort boardId = BitConverter.ToUInt16(data, 0);
-            uint timestamp = BitConverter.ToUInt32(data, 2);
-            ushort humidity = BitConverter.ToUInt16(data, 6);
-            ushort temperature = BitConverter.ToUInt16(data, 8);
-            ushort lux = BitConverter.ToUInt16(data, 10);
-            ushort unused = BitConverter.ToUInt16(data, 12);
-            ushort crc = BitConverter.ToUInt16(data, 14);
+            ushort boardId = ReverseBytes(BitConverter.ToUInt16(data, 0));
+            uint timestamp = ReverseBytes(BitConverter.ToUInt32(data, 2));
+            ushort humidityRaw = ReverseBytes(BitConverter.ToUInt16(data, 6));
+            ushort temperatureRaw = ReverseBytes(BitConverter.ToUInt16(data, 8));
+            ushort lux = ReverseBytes(BitConverter.ToUInt16(data, 10));
+            ushort unused = ReverseBytes(BitConverter.ToUInt16(data, 12));
+            ushort crc = ReverseBytes(BitConverter.ToUInt16(data, 14));
 
-            return (boardId, timestamp, humidity, temperature, lux, unused, crc);
+            double humidity = (humidityRaw >> 8) + ((humidityRaw & 0xFF) / 100.0); // Extract integer and decimal parts
+            double temperature = (temperatureRaw >> 8) + ((temperatureRaw & 0xFF) / 100.0); // Extract integer and decimal parts
+
+            ushort humidityUshort = (ushort)(humidity * 100);
+            ushort temperatureUshort = (ushort)(temperature * 100);
+
+            return (boardId, timestamp, humidityUshort, temperatureUshort, lux, unused, crc);
+        }
+        private ushort ReverseBytes(ushort value)
+        {
+            return (ushort)((value & 0xFFU) << 8 | (value & 0xFF00U) >> 8);
+        }
+
+        private uint ReverseBytes(uint value)
+        {
+            return ((value & 0x000000FFU) << 24) |
+                   ((value & 0x0000FF00U) << 8) |
+                   ((value & 0x00FF0000U) >> 8) |
+                   ((value & 0xFF000000U) >> 24);
         }
     }
 

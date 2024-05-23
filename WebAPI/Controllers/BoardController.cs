@@ -22,7 +22,7 @@ public class BoardController : ControllerBase
 
 
     [HttpGet("{encryptedData}")]
-    public async Task<IActionResult> GetBoardData(string encryptedData)
+    public async Task<String> GetBoardData(string encryptedData)
     {
         try
         {
@@ -33,8 +33,8 @@ public class BoardController : ControllerBase
 
             var responseMessage = $"Board ID: {boardId}, Timestamp: {timestamp}, Humidity: {humidity}, Temperature: {temperature}, Lux: {lux}, CRC: {crc:X2}";
 
-            var temperatureMeasurement = new MeasurementDto { Value = temperature, Time = DateTime.Now, Type = "Temperature" };
-            var humidityMeasurement = new MeasurementDto { Value = humidity, Time = DateTime.Now, Type = "Humidity" };
+            var temperatureMeasurement = new MeasurementDto { Value = temperature / 100.0, Time = DateTime.Now, Type = "Temperature" };
+            var humidityMeasurement = new MeasurementDto { Value = humidity / 100.0, Time = DateTime.Now, Type = "Humidity" };
             var lightMeasurement = new MeasurementDto { Value = lux, Time = DateTime.Now, Type = "Light" };
 
             await _measurementLogic.AddAsync(temperatureMeasurement);
@@ -43,18 +43,17 @@ public class BoardController : ControllerBase
             
             var deviceStatus = await _deviceStatusLogic.GetDeviceStatusAsync();
 
-            uint currentTimestamp = (uint)DateTimeOffset.UtcNow.ToUnixTimeSeconds(); // Current time for the response
+            uint currentTimestamp = (uint)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             byte[] responseData = _encryptionService.PrepareDataForResponse(boardId, currentTimestamp, deviceStatus.CommandCode, deviceStatus.LedStatus, deviceStatus.WindowStatus);
             byte[] responseEncrypted = _encryptionService.Encrypt(responseData);
-            string responseEncryptedHex = _encryptionService.ToHexString(responseEncrypted);
-
+            string responseEncryptedHex = _encryptionService.ToHexString(responseEncrypted).ToLower();
             await _deviceStatusLogic.ResetCommandCodeAsync();
 
-            return Ok(new { encryptedResponse = responseEncryptedHex });
+            return responseEncryptedHex;
         }
         catch (Exception ex)
         {
-            return BadRequest($"An error occurred: {ex.Message}");
+            return "An error occurred: {ex.Message}";
         }
     }
     
