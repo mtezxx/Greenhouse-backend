@@ -19,13 +19,18 @@ public class BoardController : ControllerBase
         _measurementLogic = measurementLogic;
         _deviceStatusLogic = deviceStatusLogic;
     }
-
+    private static bool _allowMeasurementUpdates = true;
+    private static Timer _timer;
 
     [HttpGet("{encryptedData}")]
     public async Task<String> GetBoardData(string encryptedData)
     {
         try
         {
+            if (_timer == null)
+            {
+                InitializeTimerIfNeeded();
+            }
             byte[] encryptedBytes = _encryptionService.FromHexString(encryptedData);
             byte[] decryptedBytes = _encryptionService.Decrypt(encryptedBytes);
 
@@ -37,9 +42,16 @@ public class BoardController : ControllerBase
             var humidityMeasurement = new MeasurementDto { Value = humidity / 100.0, Time = DateTime.Now, Type = "Humidity" };
             var lightMeasurement = new MeasurementDto { Value = lux, Time = DateTime.Now, Type = "Light" };
 
-            await _measurementLogic.AddAsync(temperatureMeasurement);
-            await _measurementLogic.AddAsync(humidityMeasurement);
-            await _measurementLogic.AddAsync(lightMeasurement);
+            if (_allowMeasurementUpdates)
+            {
+                await _measurementLogic.AddAsync(temperatureMeasurement);
+                await _measurementLogic.AddAsync(humidityMeasurement);
+                await _measurementLogic.AddAsync(lightMeasurement);
+
+                _allowMeasurementUpdates = false;
+                _timer = new Timer(EnableMeasurementUpdates, null, TimeSpan.FromMinutes(5), Timeout.InfiniteTimeSpan);
+            }
+
             
             var deviceStatus = await _deviceStatusLogic.GetDeviceStatusAsync();
 
@@ -55,6 +67,15 @@ public class BoardController : ControllerBase
         {
             return "An error occurred: {ex.Message}";
         }
+    }
+    private void EnableMeasurementUpdates(object state)
+    {
+        _allowMeasurementUpdates = true;
+    }
+    private void InitializeTimerIfNeeded()
+    {
+        // Initialize the timer if needed
+        _allowMeasurementUpdates = true; // Assuming measurements are allowed on start
     }
     
     [HttpPatch("update-status")]
