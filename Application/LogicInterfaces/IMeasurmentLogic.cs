@@ -6,4 +6,5 @@ public interface IMeasurementLogic
 {
     Task<List<MeasurementDto>> GetAllMeasurements(string type);
     Task<MeasurementDto> GetLatestAsync(string type);
+    Task<MeasurementDto> AddAsync(MeasurementDto dto);
 }

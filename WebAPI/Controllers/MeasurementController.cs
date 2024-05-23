@@ -1,4 +1,6 @@
 using Application.LogicInterfaces;
+using Domain.DTOs;
+using Domain.Entity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers;
@@ -36,5 +38,18 @@ public class MeasurementController : ControllerBase
         }
 
         return Ok(result);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> AddAsync([FromBody] MeasurementDto dto)
+    {
+        var result = await _measurementLogic.AddAsync(dto);
+
+        if (result == null)
+        {
+            return NotFound("Cannot add measurement.");
+        }
+
+        return Created("/measurement",result);
     }
 }
