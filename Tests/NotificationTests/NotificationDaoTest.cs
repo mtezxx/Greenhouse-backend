@@ -39,8 +39,8 @@ public class NotificationDaoTest : DbTestBase
         var result = await _notificationDao.GetNotificationsAsync();
 
         Assert.Equal(2, result.Count);
-        Assert.Equal("Temperature", result[0].MeasurementType);
-        Assert.Equal("Humidity", result[1].MeasurementType);
+        Assert.Equal("Humidity", result[0].MeasurementType);
+        Assert.Equal("Temperature", result[1].MeasurementType);
     }
 
     [Fact]
