@@ -49,6 +49,4 @@ jobs:
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           images: ${{ env.AZURE_CONTAINER_REGISTRY }}/backend:v1
 
-      - name: Configure Azure Web App with Docker Compose
-        run: |
-          az webapp config container set --resource-group ${{ env.AZURE_RESOURCE_GROUP }} --name ${{ env.AZURE_WEBAPP_NAME }} --multicontainer-config-type compose --multicontainer-config-file Compose.yml
+      
