@@ -46,7 +46,7 @@ public class MeasurementDao<T> : IMeasurementDao<T> where T : Measurement, new()
         public async Task<List<Measurement>> GetAllMeasurementsAsync()
         {
             return await _context.Measurements
-                .OrderBy(m => m.Id)
+                .OrderByDescending(m => m.Id)
                 .ToListAsync();
         }
 }

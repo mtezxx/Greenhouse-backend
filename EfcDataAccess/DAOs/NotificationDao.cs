@@ -15,9 +15,11 @@ public class NotificationDao : INotificationDao
 
     public async Task<List<Notification>> GetNotificationsAsync()
     {
-        return await _context.Notifications.AsNoTracking().ToListAsync();
+        return await _context.Notifications
+            .OrderByDescending(n => n.Id)  // Order by Id in descending order
+            .AsNoTracking()
+            .ToListAsync();
     }
-
     public async Task<Notification?> GetNotificationByIdAsync(int id)
     {
         return await _context.Notifications.AsNoTracking().FirstOrDefaultAsync(n => n.Id == id);

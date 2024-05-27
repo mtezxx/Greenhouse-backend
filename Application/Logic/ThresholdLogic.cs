@@ -40,12 +40,17 @@ public class ThresholdLogic : IThresholdLogic
         {
             throw new Exception("Type cannot be null!");
         }
-        
+    
         var threshold = await _thresholdDao.GetByTypeAsync(type);
-        ThresholdDto dto = new ThresholdDto(threshold.Type, threshold.minValue, threshold.maxValue);
+        if (threshold == null)
+        {
+            throw new Exception("Threshold not found.");
+        }
 
+        ThresholdDto dto = new ThresholdDto(threshold.Type, threshold.minValue, threshold.maxValue);
         return dto;
     }
+
 
     public async Task<ThresholdDto> GetLatestAsync()
     {
