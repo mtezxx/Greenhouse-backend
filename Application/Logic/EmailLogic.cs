@@ -15,14 +15,16 @@ public class EmailLogic : IEmailLogic
     private readonly IThresholdDao _thresholdDao;
     private readonly IMeasurementDao<Temperature> _temperatureDao;
     private readonly IMeasurementDao<Humidity> _humidityDao;
+    private readonly IMeasurementDao<Light> _lightDao;
     private readonly SmtpClient _smtpClient;
 
-    public EmailLogic(IEmailDao emailDao, IThresholdDao thresholdDao, IMeasurementDao<Temperature> temperatureDao, IMeasurementDao<Humidity> humidityDao, SmtpClient smtpClient)
+    public EmailLogic(IEmailDao emailDao, IThresholdDao thresholdDao, IMeasurementDao<Temperature> temperatureDao, IMeasurementDao<Humidity> humidityDao, IMeasurementDao<Light> lightDao,SmtpClient smtpClient)
     {
         _emailDao = emailDao;
         _thresholdDao = thresholdDao;
         _temperatureDao = temperatureDao;
         _humidityDao = humidityDao;
+        _lightDao = lightDao;
         _smtpClient = smtpClient;
     }
     public async Task<EmailDto> CreateAsync(EmailDto dto)
@@ -52,17 +54,40 @@ public class EmailLogic : IEmailLogic
 
     public async Task CheckIfInRange(string type)
     {
-        var temperature = await _temperatureDao.GetLatestAsync(type);
+        // init measurement
+        Measurement measurement = null;
+        
+        //assign correct value to measurement
+        switch (type)
+        {
+            case "Temperature":
+                measurement = await _temperatureDao.GetLatestAsync(type);
+                break;
+            case "Humidity":
+                measurement = await _humidityDao.GetLatestAsync(type);
+                break;
+            case "Light":
+                measurement = await _lightDao.GetLatestAsync(type);
+                break;
+            default:
+                throw new ArgumentException("Invalid measurement type.", nameof(type));
+        }
+        
+        //Check if measurement is still null
+        if (measurement == null)
+        {
+            throw new Exception("Measurement not found.");
+        }
+
         var threshold = await _thresholdDao.GetByTypeAsync(type);
         var emailDto = await _emailDao.GetAsync();
         
-        
-
-        if (temperature.Value > threshold.maxValue || temperature.Value < threshold.minValue)
+        //get information for email notification
+        if (measurement.Value > threshold.maxValue || measurement.Value < threshold.minValue)
         {
             try
             {
-                var message = $"The {type} value {temperature.Value} exceeded the threshold.";
+                var message = $"The {type} value {measurement.Value} exceeded the threshold.";
                 _smtpClient.Send("mailtrap@demomailtrap.com", "tomi.masiar@gmail.com", "Threshold Warning", message);
             }
             catch (SmtpException ex)

@@ -65,8 +65,8 @@ public class ThresholdLogic : IThresholdLogic
     {
         switch (dto.Type)
         {
-            // case "Light":
-            //     return dto.MinValue >= 0 && dto.MaxValue <= 4095;
+            case "Light":
+                return dto.MinValue >= 0 && dto.MaxValue <= 4095;
             case "Humidity":
                 return dto.MinValue >= 0 && dto.MaxValue <= 100;
             case "Temperature":
@@ -80,8 +80,8 @@ public class ThresholdLogic : IThresholdLogic
     {
         switch (threshold.Type)
         {
-            // case "Light":
-            //     return "Lumen value must range from 0 to 4095.";
+            case "Light":
+                return "Lumen value must range from 0 to 4095.";
             case "Humidity":
                 return "Humidity value must range from 0 to 100.";
             case "Temperature":

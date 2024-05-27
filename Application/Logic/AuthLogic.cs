@@ -37,7 +37,7 @@ public class AuthLogic : IAuthLogic
         return user ?? throw new Exception("User validation failed");
     }
     
-    public async Task<User> CreateUser(UserCreationDTO userCreationDto) // Add this method
+    public async Task<User> CreateUser(UserCreationDTO userCreationDto)
     {
         User existingUser = await authDao.GetUserByUsernameAsync(userCreationDto.UserName);
         if (existingUser != null)

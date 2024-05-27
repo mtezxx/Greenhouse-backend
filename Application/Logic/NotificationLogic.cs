@@ -57,10 +57,10 @@ public class NotificationLogic : INotificationLogic {
         if (latestMeasurementValue > latestNotification.Threshold) {
             message = $"Latest {type} of {latestMeasurementValue.Value} is higher than the threshold of {latestNotification.Threshold}.";
         } 
-      else  if (latestMeasurementValue < latestNotification.Threshold) {
+        else  if (latestMeasurementValue < latestNotification.Threshold) {
             message = $"Latest {type} of {latestMeasurementValue.Value} is lower than the threshold of {latestNotification.Threshold}.";
         } 
-       else {
+        else {
             message = $"Latest {type} of {latestMeasurementValue.Value} is equal to the threshold of {latestNotification.Threshold}.";
         } 
 
