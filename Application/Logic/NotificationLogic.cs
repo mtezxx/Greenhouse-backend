@@ -16,7 +16,9 @@ public class NotificationLogic : INotificationLogic {
         var notifications = await _notificationDao.GetNotificationsAsync();
         return notifications.Select(n => new NotificationDto(n.Threshold, n.MeasurementType, n.Message)).ToList();
     }
-
+    
+    
+    //comment
     public async Task<NotificationDto?> GetNotificationByIdAsync(int id) {
         var notification = await _notificationDao.GetNotificationByIdAsync(id);
         if (notification != null) {
